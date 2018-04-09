@@ -17,8 +17,9 @@ Enter hacker name on main menu
 Rouge like, No saving
   -Money meter from hacking (score)
   
-  STory:
+  Story:
     Start with email: Mystery email that gives starting story, quick hack the email as a minigame to save your computer!
+    Also maybe have a hacker hunt where you try to find a missing girl.
     
  Pretty much everything is plain text
  
@@ -28,3 +29,25 @@ Rouge like, No saving
   -if you don't hack right one of your agents die
   Bunch of small text games.
   
+Flavor Ideas:
+Pleasure.exe: Vibration
+Corn Hub Folder: 3 pics of corn
+Smoke Break/Counter Hack: Blow on mic
+
+
+Main Email Guy will have anime girl icon as email icon;
+  -sends you news articles and stuff.
+  
+ Sounds:
+ Boot up sound
+ Typing sound
+ Click sound
+ 
+ Possibly include plugin for shaders as EXTRA: https://plugins.jetbrains.com/plugin/6993-glsl-support
+ 
+ Settings.exe: Access game settings and shutting down the game
+ 
+ Stats.exe: Keep track of user statistics
+ Achievemnts.exe: Some fun rewards for doing things.
+ 
+ Art for icons: 16 or 32 bit?
