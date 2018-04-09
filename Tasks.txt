@@ -1,0 +1,10 @@
+-Make Game Menu
+  -render a square
+  -button to load up Desktop
+  
+
+-Make Desktop
+  -Make terminal Icons
+
+-Make Terminal
+  -scale text properly
