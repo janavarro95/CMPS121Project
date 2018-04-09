@@ -1,0 +1,30 @@
+H@ckerz
+
+Bunch of minigames; (timer)
+
+Maze solving puzzle
+
+Terminal puzzle
+
+Loading screen into the app
+
+password cracker minigame
+
+Small text: Story Mode
+
+Enter hacker name on main menu
+
+Rouge like, No saving
+  -Money meter from hacking (score)
+  
+  STory:
+    Start with email: Mystery email that gives starting story, quick hack the email as a minigame to save your computer!
+    
+ Pretty much everything is plain text
+ 
+ * Find font that is small old school hacking text
+ 
+ Minigmes:
+  -if you don't hack right one of your agents die
+  Bunch of small text games.
+  
