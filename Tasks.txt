@@ -8,3 +8,9 @@
 
 -Make Terminal
   -scale text properly
+  
+  
+ Current Goal: Deadline: 4/15/18
+ 1.Debug main menu that swaps to the desktop interface which can just be a debug page as well.
+2. Make desktop apps( terminal, make "windows" full screen, move terminal screens, close terminal screens)
+
