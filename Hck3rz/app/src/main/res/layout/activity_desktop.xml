@@ -12,41 +12,50 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/mailButton"
-        app:srcCompat="@drawable/terminal"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/terminal" />
 
     <ImageButton
         android:id="@+id/mailButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/newsButton"
-        app:srcCompat="@drawable/email"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/email" />
 
     <ImageButton
         android:id="@+id/newsButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/settingsButton"
-        app:srcCompat="@drawable/news"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/news" />
 
     <ImageButton
         android:id="@+id/settingsButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:layout_marginBottom="252dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/settings"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="251dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/settings" />
 </android.support.constraint.ConstraintLayout>
