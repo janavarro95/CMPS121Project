@@ -25,8 +25,8 @@
 
     <ImageButton
         android:id="@+id/mailButton"
-        android:layout_width="64"
-        android:layout_height="64"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_marginBottom="380dp"
         android:layout_marginEnd="292dp"
         android:layout_marginLeft="24dp"
@@ -45,8 +45,8 @@
 
     <ImageButton
         android:id="@+id/newsButton"
-        android:layout_width="64"
-        android:layout_height="64"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_marginBottom="266dp"
         android:layout_marginEnd="290dp"
         android:layout_marginLeft="24dp"
@@ -65,8 +65,8 @@
 
     <ImageButton
         android:id="@+id/settingsButton"
-        android:layout_width="64"
-        android:layout_height="64"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_marginBottom="186dp"
         android:layout_marginEnd="296dp"
         android:layout_marginLeft="24dp"
