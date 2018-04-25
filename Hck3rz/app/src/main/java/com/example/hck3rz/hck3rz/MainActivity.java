@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 password = psw.getText().toString();
 
                 Intent intent = new Intent(".DesktopActivity");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });
