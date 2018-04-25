@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class DesktopActivity extends AppCompatActivity {
 
@@ -15,12 +15,16 @@ public class DesktopActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
         requestWindowFeature(Window.FEATURE_NO_TITLE); //Removes the ugly title for the app.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN); //Makes the activity app fullscreen.
 
         setContentView(R.layout.activity_desktop);
 
+    }
+    public void terminal_click(View v){
+        Intent intent;
+        intent = new Intent(".TerminalActivity");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
     }
 }
