@@ -3,10 +3,12 @@ package com.example.hck3rz.hck3rz;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import User.Game;
 import User.Player;
 import Utilities.ColorUtilities;
 
@@ -15,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private MainActivity instance;
     private static Button okButton;
     private static TextView errorMessage;
+    private Player dummyPlayer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,18 @@ public class MainActivity extends AppCompatActivity {
         OnClickButtonListener();
         instance=this;
 
+        dummyPlayer=Player.loadPlayerObject(MainActivity.this);
 
+        //Attempt to load in info of last logged in player.
+        if(dummyPlayer!=null){
+            TextView user = findViewById(R.id.userNameEditText);
+            TextView pass = findViewById(R.id.passwordEditText);
+
+            user.setText(dummyPlayer.username); //Set the username.
+            pass.setText(dummyPlayer.password); //Set the password.
+        }
+
+        //Load in save data to text fields here if you can find it!!!
     }
     public void OnClickButtonListener(){
 
@@ -53,9 +68,23 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                Player.Username=username;
-                Player.Password=password;
+                //Attempt to load the player from a file and if we can't we create a new one.
+                try {
+                    Player.loadToGame(MainActivity.this);
+                }
+                catch (Exception err) {
+                    try {
+                        if (Game.player == null) {
+                            Game.player = new Player(username, password);
+                            //Game.player.save(MainActivity.this);
+                            Game.player.save(MainActivity.this); //Attempt to save and just go back and forth.
+                        }
 
+                    }
+                    catch (Exception err2){
+                        Log.v("BAD LOAD",err2.toString());
+                    }
+                }
                 Intent intent = new Intent(".DesktopActivity");
                 startActivity(intent);
             }

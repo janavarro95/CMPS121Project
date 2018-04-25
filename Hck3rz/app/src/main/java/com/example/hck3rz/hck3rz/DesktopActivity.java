@@ -10,6 +10,7 @@ import android.os.Vibrator;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import User.Game;
 import User.Player;
 
 public class DesktopActivity extends AppCompatActivity {
@@ -23,8 +24,7 @@ public class DesktopActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_desktop);
 
-        TextView display= findViewById(R.id.displayGarbage);
-        display.setText(Player.Username);
+
 
         ImageButton b= findViewById(R.id.terminalButton);
         b.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +34,18 @@ public class DesktopActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        try {
+            TextView display = findViewById(R.id.displayGarbage);
+            display.setText(Game.player.statistics.numberOfTimesLoggedIn);
+        }
+        catch (Exception err){
+
+        }
     }
 
     //Credit for vibration goes here: https://stackoverflow.com/questions/13950338/how-to-make-an-android-device-vibrate
