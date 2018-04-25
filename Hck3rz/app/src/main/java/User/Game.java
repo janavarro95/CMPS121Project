@@ -6,4 +6,5 @@ package User;
 public class Game {
 
     public static Player player;
+    public static final String playerSavePath="Player.hak";
 }

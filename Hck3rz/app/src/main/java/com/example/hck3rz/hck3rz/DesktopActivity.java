@@ -3,6 +3,7 @@ package com.example.hck3rz.hck3rz;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -41,10 +42,10 @@ public class DesktopActivity extends AppCompatActivity {
         super.onStart();
         try {
             TextView display = findViewById(R.id.displayGarbage);
-            display.setText(Game.player.statistics.numberOfTimesLoggedIn);
+           display.setText(Game.player.username);
         }
         catch (Exception err){
-
+            Log.v("Setting display error",err.toString());
         }
     }
 

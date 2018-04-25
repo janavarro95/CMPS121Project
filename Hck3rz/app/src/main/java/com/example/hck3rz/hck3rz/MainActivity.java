@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
             TextView user = findViewById(R.id.userNameEditText);
             TextView pass = findViewById(R.id.passwordEditText);
 
-            user.setText(dummyPlayer.username); //Set the username.
+
+            user.setText(dummyPlayer.username.toString()); //Set the username.
             pass.setText(dummyPlayer.password); //Set the password.
         }
 
@@ -84,6 +85,16 @@ public class MainActivity extends AppCompatActivity {
                     catch (Exception err2){
                         Log.v("BAD LOAD",err2.toString());
                     }
+                }
+
+                if(Game.player==null){
+                    Game.player=new Player(username,password);
+                    Game.player.save(MainActivity.this);
+                }
+
+                if(username!=Game.player.username){
+                    Game.player.username=username;
+                    Game.player.save(MainActivity.this);
                 }
                 Intent intent = new Intent(".DesktopActivity");
                 startActivity(intent);

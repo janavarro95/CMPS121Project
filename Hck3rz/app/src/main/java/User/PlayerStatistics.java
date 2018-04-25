@@ -7,25 +7,29 @@ import android.util.Log;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * Keeps track of various things the player has been doing. This is a game about hacking after all.
  */
-public class PlayerStatistics {
+public class PlayerStatistics implements Serializable {
 
+
+    private static final long serialVersionUID = 7829136421241571160L;
     /**
      * The number of times a player has clicked a button.
      */
-    public Integer numberOfButtonsClicked;
+    public int numberOfButtonsClicked;
 
     /**
      * The number of times the player has logged in.
      */
-    public Integer numberOfTimesLoggedIn;
+    public int numberOfTimesLoggedIn;
 
-    public Integer numberOfMinigamesPlayed;
+    public int numberOfMinigamesPlayed;
 
     /**
      * The file name that the player's statistic information is saved/loaded from.
@@ -84,6 +88,20 @@ public class PlayerStatistics {
             Log.v("File load error",err.toString()); //An error occured when loading in the player's save data.
             return null;
         }
+    }
+
+    private void readObject(ObjectInputStream aInputStream) throws ClassNotFoundException, IOException
+    {
+        numberOfButtonsClicked = Integer.parseInt(aInputStream.readUTF());
+        numberOfTimesLoggedIn = Integer.parseInt(aInputStream.readUTF());
+        numberOfMinigamesPlayed = Integer.parseInt(aInputStream.readUTF());
+    }
+
+    private void writeObject(ObjectOutputStream aOutputStream) throws IOException
+    {
+        aOutputStream.writeUTF(Integer.toString(numberOfButtonsClicked));
+        aOutputStream.writeUTF(Integer.toString(numberOfButtonsClicked));
+        aOutputStream.writeUTF(Integer.toString(numberOfButtonsClicked));
     }
 
 }
