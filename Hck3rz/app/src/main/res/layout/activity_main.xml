@@ -62,10 +62,12 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/loginImageView"
+        android:layout_width="157dp"
+        android:layout_height="147dp"
         android:layout_marginBottom="8dp"
         android:scaleType="fitCenter"
+        android:src="@drawable/login_image"
         app:layout_constraintBottom_toTopOf="@+id/userNameEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
