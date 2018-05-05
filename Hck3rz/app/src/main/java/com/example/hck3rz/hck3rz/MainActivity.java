@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
 import android.widget.TextView;
 
 import User.Game;
@@ -15,6 +16,14 @@ import Utilities.ColorUtilities;
 public class MainActivity extends AppCompatActivity {
 
     private MainActivity instance;
+=======
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+    public static String user_name;
+    public static String password;
+
+>>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
     private static Button okButton;
     private static TextView errorMessage;
     private Player dummyPlayer;
@@ -47,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
                 TextView user = findViewById(R.id.userNameEditText);
                 TextView pass = findViewById(R.id.passwordEditText);
 
@@ -96,7 +106,18 @@ public class MainActivity extends AppCompatActivity {
                     Game.player.username=username;
                     Game.player.save(MainActivity.this);
                 }
+=======
+                // store the username and password in static strings
+                // so that you can access them from other activities
+                EditText name = findViewById(R.id.userNameEditText);
+                user_name = name.getText().toString();
+
+                EditText psw = findViewById(R.id.passwordEditText);
+                password = psw.getText().toString();
+
+>>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
                 Intent intent = new Intent(".DesktopActivity");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });

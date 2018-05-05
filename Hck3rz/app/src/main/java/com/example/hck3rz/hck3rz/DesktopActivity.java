@@ -1,5 +1,6 @@
 package com.example.hck3rz.hck3rz;
 
+<<<<<<< HEAD
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,16 @@ import android.widget.TextView;
 
 import User.Game;
 import User.Player;
+=======
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageButton;
+>>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
 
 public class DesktopActivity extends AppCompatActivity {
 
@@ -25,6 +36,7 @@ public class DesktopActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_desktop);
 
+<<<<<<< HEAD
 
 
         ImageButton b= findViewById(R.id.terminalButton);
@@ -59,5 +71,13 @@ public class DesktopActivity extends AppCompatActivity {
 
         // Vibrate for 400 milliseconds
         vibrator.vibrate(400);
+=======
+    }
+    public void terminal_click(View v){
+        Intent intent;
+        intent = new Intent(".TerminalActivity");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+>>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
     }
 }
