@@ -11,40 +11,27 @@
         android:id="@+id/terminalButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
-<<<<<<< HEAD
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-=======
+
+
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
->>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
         android:background="@null"
         android:onClick="terminal_click"
         android:scaleType="fitCenter"
-<<<<<<< HEAD
-        app:layout_constraintBottom_toTopOf="@+id/mailButton"
-        app:layout_constraintStart_toStartOf="parent"
-=======
+
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
->>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
+
         app:srcCompat="@drawable/terminal" />
 
     <ImageButton
         android:id="@+id/mailButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
-<<<<<<< HEAD
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/newsButton"
-        app:layout_constraintStart_toStartOf="parent"
-=======
+
+
         android:layout_marginEnd="292dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="292dp"
@@ -56,22 +43,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/terminalButton"
->>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
         app:srcCompat="@drawable/email" />
 
     <ImageButton
         android:id="@+id/newsButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
-<<<<<<< HEAD
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
-        app:layout_constraintStart_toStartOf="parent"
-=======
+
+
         android:layout_marginEnd="290dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="290dp"
@@ -83,27 +62,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mailButton"
->>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
         app:srcCompat="@drawable/news" />
 
     <ImageButton
         android:id="@+id/settingsButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
-<<<<<<< HEAD
-        android:layout_marginBottom="252dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:background="@null"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-=======
+
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:background="@null"
         android:scaleType="fitCenter"
->>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
+
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/settings" />
 

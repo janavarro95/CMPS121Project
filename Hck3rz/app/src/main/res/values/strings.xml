@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">H@ck3rz</string>
-<<<<<<< HEAD
-
-=======
     <color name="blue">#4286f4</color>
     <color name="black">#000000</color>
     <color name="green">#00ff00</color>
     <string name="title_activity_terminal">TerminalActivity</string>
->>>>>>> b442546e520959a53d7fbbc828e29e5c418eda6a
 </resources>
