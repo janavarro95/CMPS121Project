@@ -16,12 +16,13 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * A class that deals with all of the information regarding the player.
  */
-public class Player implements Parcelable {
+public class Player {
 
     private static final long serialVersionUID = 7829136421241571161L;
     /**
@@ -33,6 +34,8 @@ public class Player implements Parcelable {
      */
     public String password;
 
+    public ArrayList<Email> emails; //Save these.
+
 
     //public PlayerStatistics statistics;
 
@@ -42,7 +45,7 @@ public class Player implements Parcelable {
     //private static final String fileSaveName = "Player.hak";
 
     public Player(){
-
+        this.emails=new ArrayList<>();
     }
 
     /**
@@ -53,6 +56,7 @@ public class Player implements Parcelable {
     public Player(String username, String password) {
         this.username = username;
         this.password = password;
+        this.emails=new ArrayList<>();
         //this.statistics=new PlayerStatistics();
     }
 
@@ -61,7 +65,7 @@ public class Player implements Parcelable {
      * @param context Use (ActivityName).this to be able to pass in the context to save the player.
      *                Reference: https://stackoverflow.com/questions/4118751/how-do-i-serialize-an-object-and-save-it-to-a-file-in-android
      */
-    public void save(Context context) {
+    public void save(Context context) throws IOException {
         try {
 
             //Check if our file exists and if so, delete it so we can overwrite it.
@@ -82,6 +86,8 @@ public class Player implements Parcelable {
         } catch (Exception e) {
             Log.v("SAVE ERROR",e.toString()); //Print out an error if there is one.
         }
+
+        PostMan.saveEmailToFile(context);
     }
 
     /**
@@ -89,7 +95,7 @@ public class Player implements Parcelable {
      * @param context Use (ActivityName).this to be able to pass in the context to save the player.
      *                Reference: https://stackoverflow.com/questions/4118751/how-do-i-serialize-an-object-and-save-it-to-a-file-in-android
      */
-    public static void loadToGame(Context context) {
+    public static void loadToGame(Context context) throws IOException {
         try {
             FileInputStream fis = context.openFileInput(Game.playerSavePath); //Load the file if there is one.
             ObjectInputStream is = new ObjectInputStream(fis); //Open up an object input stream.
@@ -111,9 +117,13 @@ public class Player implements Parcelable {
             Game.player=p; //Set the loaded player's reference to the game's player reference.
             //Game.player.statistics=PlayerStatistics.load(context); //Load in the player's statistics.
             //Game.player.statistics.numberOfTimesLoggedIn++; //Increment the number of times the player has logged in.
+
+            PostMan.loadEmailsFromFiles(context);
         } catch (Exception err) {
             Log.v("LoadError",err.toString()); //An error occured when loading in the player's save data.
         }
+
+
     }
 
     /**
@@ -148,30 +158,5 @@ public class Player implements Parcelable {
         }
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(username);
-        dest.writeString(password);
-    }
-
-    public static final Parcelable.Creator<Player> CREATOR
-            = new Parcelable.Creator<Player>() {
-        public Player createFromParcel(Parcel in) {
-            return new Player(in);
-        }
-
-        public Player[] newArray(int size) {
-            return new Player[size];
-        }
-    };
-
-    private Player(Parcel in) {
-        username = in.readString();
-        password = in.readString();
-    }
 }

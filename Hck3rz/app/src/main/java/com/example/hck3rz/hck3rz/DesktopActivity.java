@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import User.Game;
+import User.PostMan;
+
 import android.content.Intent;
 
 public class DesktopActivity extends AppCompatActivity {
@@ -25,15 +27,27 @@ public class DesktopActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_desktop);
 
-
-
         ImageButton b= findViewById(R.id.terminalButton);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goodVibrations(v);
+                terminal_click(v);
             }
         });
+
+        ImageButton email=findViewById(R.id.mailButton);
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mail_click(v);
+            }
+        });
+
+        try {
+            PostMan.ensureAllEmailsAreUnique();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -60,9 +74,21 @@ public class DesktopActivity extends AppCompatActivity {
         // Vibrate for 400 milliseconds
         vibrator.vibrate(400);
     }
+
+
     public void terminal_click(View v){
         Intent intent;
         intent = new Intent(".TerminalActivity");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+    }
+
+    /**
+     * Starts up the mail inbox activity.
+     * @param v
+     */
+    public void mail_click(View v){
+        Intent intent=new Intent(this,EmailInboxActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }

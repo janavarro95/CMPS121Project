@@ -14,6 +14,8 @@ import User.Player;
 import Utilities.ColorUtilities;
 import android.widget.EditText;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
         private MainActivity instance;
@@ -93,12 +95,20 @@ public class MainActivity extends AppCompatActivity {
 
                     if (Game.player == null) {
                         Game.player = new Player(username, password);
-                        Game.player.save(MainActivity.this);
+                        try {
+                            Game.player.save(MainActivity.this);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     if (username != Game.player.username) {
                         Game.player.username = username;
-                        Game.player.save(MainActivity.this);
+                        try {
+                            Game.player.save(MainActivity.this);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
 
 
