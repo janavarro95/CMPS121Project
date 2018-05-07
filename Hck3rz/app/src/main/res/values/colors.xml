@@ -7,4 +7,5 @@
     <color name="terminalText">#00ff00</color>
     <color name="terminalBackground">#000000</color>
     <color name="errorRedMessage">#ff0000</color>
+    <color name="emailBackgroundGrey">#696969</color>
 </resources>

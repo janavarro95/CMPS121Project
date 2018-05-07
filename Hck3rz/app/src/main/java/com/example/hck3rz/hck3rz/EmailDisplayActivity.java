@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import User.Email;
@@ -13,6 +14,11 @@ public class EmailDisplayActivity extends AppCompatActivity {
 
     Button returnButton;
     TextView emailContents;
+    TextView subject;
+    TextView senderAddress;
+    TextView senderName;
+
+    ImageView senderIcon;
 
     public static Email currentEmail;
 
@@ -33,5 +39,20 @@ public class EmailDisplayActivity extends AppCompatActivity {
         });
 
         emailContents.setText(currentEmail.contents);
+
+        subject=findViewById(R.id.TEXT_VIEW_EMAIL_DISPLAY_SUBJECT);
+        subject.setText(currentEmail.subject);
+
+        senderAddress=findViewById(R.id.TEXT_VIEW_EMAIL_DISPLAY_SENDER_ADDRESS);
+        senderAddress.setText(currentEmail.senderEmail);
+
+        senderName=findViewById(R.id.TEXT_VIEW_EMAIL_DISPLAY_SENDER_NAME);
+        senderName.setText(currentEmail.senderName);
+
+        senderIcon=findViewById(R.id.IMAGE_VIEW_EMAIL_DISPLAY_SENDER_ICON);
+        senderIcon.setImageResource(currentEmail.senderIcon);
+
+        
+
     }
 }

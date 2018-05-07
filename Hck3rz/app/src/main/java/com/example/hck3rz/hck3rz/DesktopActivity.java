@@ -82,7 +82,7 @@ public class DesktopActivity extends AppCompatActivity {
      */
     public void mail_click(View v){
         Intent intent=new Intent(this,EmailInboxActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        //intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
 }

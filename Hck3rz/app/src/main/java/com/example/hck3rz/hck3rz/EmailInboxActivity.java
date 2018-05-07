@@ -38,6 +38,7 @@ public class EmailInboxActivity extends AppCompatActivity {
         inboxList.setAdapter(inboxAdapter);
 
         PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"));
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("momLovesYou"));
 
         inboxList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

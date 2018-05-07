@@ -34,7 +34,7 @@ public class PostMan {
     public static void initializeEmails(Context context){
         EmailPool=new ArrayList<>();
        EmailPool.add(new Email(R.drawable.email,"First Email","Unknown","unknownSender@system.net",R.drawable.email,PostMan.readFromFile(context,"FirstEmail.txt"),"FirstEmail"));
-       EmailPool.add(new Email(R.drawable.email,"HOT NEW EMAIL","My Mom","mom@aol.com",R.drawable.email,"Hello","momLovesYou"));
+       EmailPool.add(new Email(R.mipmap.ic_launcher,"HOT NEW EMAIL","My Mom","mom@aol.com",R.mipmap.ic_launcher,"Hello","momLovesYou"));
     }
 
     /**
