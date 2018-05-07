@@ -32,6 +32,6 @@ public class EmailDisplayActivity extends AppCompatActivity {
             }
         });
 
-        emailContents.setText(PostMan.readFromFile(this,"texty.txt"));
+        emailContents.setText(currentEmail.contents);
     }
 }

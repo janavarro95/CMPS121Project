@@ -4,6 +4,9 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.hck3rz.hck3rz.MainActivity;
+import com.example.hck3rz.hck3rz.R;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,8 +27,15 @@ public class PostMan {
      */
     public static ArrayList<Email> EmailPool=new ArrayList<Email>(){
         //{new Email();}
+
     };
 
+
+    public static void initializeEmails(Context context){
+        EmailPool=new ArrayList<>();
+       EmailPool.add(new Email(R.drawable.email,"First Email","Unknown","unknownSender@system.net",R.drawable.email,PostMan.readFromFile(context,"FirstEmail.txt"),"FirstEmail"));
+       EmailPool.add(new Email(R.drawable.email,"HOT NEW EMAIL","My Mom","mom@aol.com",R.drawable.email,"Hello","momLovesYou"));
+    }
 
     /**
      * Saves all of the emails the player has recieved to a file.
@@ -36,6 +46,7 @@ public class PostMan {
         for(int i=0; i<Game.player.emails.size(); i++) {
             Game.player.emails.get(i).save(context);
         }
+
     }
 
     /**
@@ -95,10 +106,10 @@ public class PostMan {
      * @return
      */
     public static Email getEmailByUniqueID(String uniqueID){
-        for (Email e:
-            EmailPool ) {
-            if(e.uniqueID==uniqueID){
-                return e;
+        for (int i=0; i< EmailPool.size();i++) {
+            Log.v("Get an email",EmailPool.get(i).subject);
+            if(EmailPool.get(i).uniqueID.equals(uniqueID)){
+                return EmailPool.get(i);
             }
         }
         Log.v("getEmailByUniqueID","Error: Unique id not found!");

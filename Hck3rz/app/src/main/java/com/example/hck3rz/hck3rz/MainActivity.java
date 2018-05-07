@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import User.Game;
 import User.Player;
+import User.PostMan;
 import Utilities.ColorUtilities;
 import android.widget.EditText;
 
@@ -18,7 +19,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-        private MainActivity instance;
+        public static MainActivity instance;
 
 
         private static Button okButton;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             OnClickButtonListener();
             instance = this;
+            PostMan.initializeEmails(this);
+
 
             dummyPlayer = Player.loadPlayerObject(MainActivity.this);
 

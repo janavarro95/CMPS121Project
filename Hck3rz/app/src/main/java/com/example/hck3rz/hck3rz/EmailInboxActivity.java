@@ -37,7 +37,7 @@ public class EmailInboxActivity extends AppCompatActivity {
         InboxAdapter inboxAdapter=new InboxAdapter();
         inboxList.setAdapter(inboxAdapter);
 
-        PostMan.addEmailToInbox(new Email(R.drawable.email,"HOT NEW EMAIL","My Mom","mom@aol.com",R.mipmap.ic_launcher,"Hello","momLovesYou"));
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"));
 
         inboxList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
