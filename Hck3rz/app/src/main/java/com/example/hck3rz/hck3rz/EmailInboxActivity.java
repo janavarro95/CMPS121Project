@@ -1,9 +1,12 @@
 package com.example.hck3rz.hck3rz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -21,11 +24,14 @@ import User.PostMan;
 public class EmailInboxActivity extends AppCompatActivity {
 
     ListView inboxList;
+    EmailInboxActivity instance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_inbox);
+
+        instance=this;
 
         inboxList=findViewById(R.id.LIST_VIEW_EMAIL_INBOX);
         InboxAdapter inboxAdapter=new InboxAdapter();
@@ -33,6 +39,18 @@ public class EmailInboxActivity extends AppCompatActivity {
 
         PostMan.addEmailToInbox(new Email(R.drawable.email,"HOT NEW EMAIL","My Mom","mom@aol.com",R.mipmap.ic_launcher,"Hello","momLovesYou"));
 
+        inboxList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Email e = Game.player.emails.get(position);
+
+                Log.v("EmailClicked:",e.subject);
+
+                EmailDisplayActivity.currentEmail=e;
+                Intent i =new Intent(instance,EmailDisplayActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     /**

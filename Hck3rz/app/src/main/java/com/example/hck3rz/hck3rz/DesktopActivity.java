@@ -54,13 +54,6 @@ public class DesktopActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        try {
-            TextView display = findViewById(R.id.displayGarbage);
-           display.setText(Game.player.username);
-        }
-        catch (Exception err){
-            Log.v("Setting display error",err.toString());
-        }
     }
 
     //Credit for vibration goes here: https://stackoverflow.com/questions/13950338/how-to-make-an-android-device-vibrate

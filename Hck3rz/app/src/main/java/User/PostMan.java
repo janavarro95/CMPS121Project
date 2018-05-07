@@ -4,8 +4,12 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /*
@@ -138,6 +142,38 @@ public class PostMan {
 
     public static void loadContentsFromDisk(String uniqueID){
 
+    }
+
+
+    //Reference: https://stackoverflow.com/questions/14376807/how-to-read-write-string-from-a-file-in-android
+    public static String readFromFile(Context context, String filename) {
+
+        String ret = "";
+
+        try {
+            InputStream inputStream = context.getAssets().open(filename);
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+            }
+        }
+        catch (FileNotFoundException e) {
+            Log.e("Postman", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("Postman", "Can not read file: " + e.toString());
+        }
+
+        return ret;
     }
 
 }

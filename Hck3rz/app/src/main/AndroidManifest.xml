@@ -32,7 +32,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".EmailInboxActivity"></activity>
+        <activity android:name=".EmailInboxActivity" />
+        <activity android:name=".EmailDisplayActivity"></activity>
     </application>
 
 </manifest>
