@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             OnClickButtonListener();
             instance = this;
             PostMan.initializeEmails(this);
+            Game.currentAppContext=this;
 
 
             dummyPlayer = Player.loadPlayerObject(MainActivity.this);

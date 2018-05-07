@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import User.Email;
+import User.Game;
 import User.PostMan;
 
 public class EmailDisplayActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class EmailDisplayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_display);
-
+        Game.currentAppContext=this;
         returnButton = findViewById(R.id.BUTTON_RETURN_TO_INBOX);
         emailContents =findViewById(R.id.TEXT_VIEW_EMAIL_CONTENTS);
 
@@ -52,7 +53,7 @@ public class EmailDisplayActivity extends AppCompatActivity {
         senderIcon=findViewById(R.id.IMAGE_VIEW_EMAIL_DISPLAY_SENDER_ICON);
         senderIcon.setImageResource(currentEmail.senderIcon);
 
-        
+
 
     }
 }

@@ -21,7 +21,7 @@ public class DesktopActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Game.currentAppContext=this;
         requestWindowFeature(Window.FEATURE_NO_TITLE); //Removes the ugly title for the app.
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN); //Makes the activity app fullscreen.
 

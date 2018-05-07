@@ -30,7 +30,7 @@ public class EmailInboxActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_inbox);
-
+        Game.currentAppContext=this;
         instance=this;
 
         inboxList=findViewById(R.id.LIST_VIEW_EMAIL_INBOX);

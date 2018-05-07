@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import User.Game;
+
 public class TerminalActivity extends AppCompatActivity {
     private String terminal_content = "Welcome!";
     private final String[] boot_sequence = {"Booting hackOS1.0","Success"};
@@ -13,6 +15,7 @@ public class TerminalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_terminal);
+        Game.currentAppContext=this;
 
         // get the display text
         TextView tv = findViewById(R.id.TerminalView);
