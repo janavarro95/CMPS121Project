@@ -34,28 +34,13 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            OnClickButtonListener();
+            setContentView(R.layout.activity_main);;
             instance = this;
             PostMan.initializeEmails(this);
             Game.currentAppContext=this;
-
+            Game.volume=1.00f;
 
             dummyPlayer = Player.loadPlayerObject(MainActivity.this);
-
-
-                Intent intent = new Intent(".DesktopActivity");
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
-            }
-
-
-
-
-    public void loginSound(View v){
-
-        Utilities.SoundUtilities.playSound(this,R.raw.microsoft_windows_xp_startup_sound);
-
 
             //Attempt to load in info of last logged in player.
             if (dummyPlayer != null) {
@@ -66,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
                 user.setText(dummyPlayer.username.toString()); //Set the username.
                 pass.setText(dummyPlayer.password); //Set the password.
             }
+
+            OnClickButtonListener();
+            }
+
+
+
+
+    public void loginSound(View v){
+
+        Utilities.SoundUtilities.playSound(this,R.raw.microsoft_windows_xp_startup_sound);
 
             //Load in save data to text fields here if you can find it!!!
         }

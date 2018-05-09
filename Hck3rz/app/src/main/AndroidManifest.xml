@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".DesktopActivity">
             <intent-filter>
                 <action android:name=".DesktopActivity" />
@@ -28,7 +29,13 @@
         </activity>
 
 
-        <activity android:name=".MatrixDigitalRainGame"></activity>
+        <activity android:name=".MatrixDigitalRainGame">
+        <intent-filter>
+            <action android:name=".MatrixDigitalRainGame" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
 
         <activity android:name=".TerminalActivity">
             <intent-filter>
@@ -37,8 +44,22 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".EmailInboxActivity" />
-        <activity android:name=".EmailDisplayActivity"></activity>
+        <activity android:name=".EmailInboxActivity">
+        <intent-filter>
+            <action android:name=".EmailInboxActivity" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+
+        <activity android:name=".EmailDisplayActivity">
+            <intent-filter>
+                <action android:name=".EmailDisplayActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".AxeGameActivity">
             <intent-filter>
                 <action android:name=".AxeGameActivity" />

@@ -12,24 +12,17 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
 
-        android:layout_marginBottom="8dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/mailButton"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
 
 
-
-
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
         android:background="@null"
         android:onClick="terminal_click"
         android:scaleType="fitCenter"
-
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
+        app:layout_constraintTop_toBottomOf="@+id/newsButton"
         app:srcCompat="@drawable/terminal" />
 
     <ImageButton
@@ -37,27 +30,27 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
 
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+
+        android:layout_marginTop="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/newsButton"
         app:layout_constraintStart_toStartOf="parent"
-
+        app:layout_constraintTop_toBottomOf="@+id/terminalButton"
         app:srcCompat="@drawable/email" />
 
     <ImageButton
         android:id="@+id/newsButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/news" />
 
     <ImageButton
@@ -65,15 +58,14 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
 
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
 
+        android:layout_marginTop="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newsButton"
+        app:layout_constraintTop_toBottomOf="@+id/mailButton"
         app:srcCompat="@drawable/settings" />
 
 </android.support.constraint.ConstraintLayout>
