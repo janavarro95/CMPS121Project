@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmailDisplayActivity">
+
+    <TextView
+        android:id="@+id/TEXT_VIEW_EMAIL_CONTENTS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="128dp"
+        android:text="Email Contents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/BUTTON_RETURN_TO_INBOX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="Close Email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/IMAGE_VIEW_EMAIL_DISPLAY_SENDER_ICON"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_FROM"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/email" />
+
+    <TextView
+        android:id="@+id/TEXT_VIEW_EMAIL_DISPLAY_FROM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:text="From:"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_SENDER_NAME"
+        app:layout_constraintEnd_toStartOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_SENDER_NAME"
+        app:layout_constraintStart_toEndOf="@+id/IMAGE_VIEW_EMAIL_DISPLAY_SENDER_ICON" />
+
+    <TextView
+        android:id="@+id/TEXT_VIEW_EMAIL_DISPLAY_SENDER_ADDRESS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Sender"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_SENDER_NAME"
+        app:layout_constraintTop_toBottomOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_SENDER_NAME" />
+
+    <TextView
+        android:id="@+id/TEXT_VIEW_EMAIL_DISPLAY_SUBJECT_BASIC_TEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subject:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_SUBJECT"
+        app:layout_constraintEnd_toEndOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_FROM"
+        app:layout_constraintStart_toEndOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_FROM" />
+
+    <TextView
+        android:id="@+id/TEXT_VIEW_EMAIL_DISPLAY_SUBJECT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="16dp"
+        android:text="Email Subject"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_SUBJECT_BASIC_TEXT"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TEXT_VIEW_EMAIL_DISPLAY_SENDER_NAME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="163dp"
+        android:layout_marginRight="163dp"
+        android:layout_marginTop="16dp"
+        android:text="Sender Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_FROM"
+        app:layout_constraintTop_toBottomOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_SUBJECT_BASIC_TEXT" />
+</android.support.constraint.ConstraintLayout>
