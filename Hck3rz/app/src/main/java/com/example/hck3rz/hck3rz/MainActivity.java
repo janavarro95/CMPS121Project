@@ -11,12 +11,15 @@ import android.widget.TextView;
 
 import User.Game;
 import User.Player;
+import User.PostMan;
 import Utilities.ColorUtilities;
 import android.widget.EditText;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
-        private MainActivity instance;
+        public static MainActivity instance;
 
 
         private static Button okButton;
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             OnClickButtonListener();
             instance = this;
+            PostMan.initializeEmails(this);
+            Game.currentAppContext=this;
+
 
             dummyPlayer = Player.loadPlayerObject(MainActivity.this);
 
@@ -93,12 +99,20 @@ public class MainActivity extends AppCompatActivity {
 
                     if (Game.player == null) {
                         Game.player = new Player(username, password);
-                        Game.player.save(MainActivity.this);
+                        try {
+                            Game.player.save(MainActivity.this);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     if (username != Game.player.username) {
                         Game.player.username = username;
-                        Game.player.save(MainActivity.this);
+                        try {
+                            Game.player.save(MainActivity.this);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
 
 
