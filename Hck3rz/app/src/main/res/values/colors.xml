@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
     <color name="desktopBlue">#4286f4</color>
     <color name="terminalText">#00ff00</color>
     <color name="terminalBackground">#000000</color>
