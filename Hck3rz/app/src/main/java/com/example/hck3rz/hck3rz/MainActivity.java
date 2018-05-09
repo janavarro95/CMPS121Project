@@ -1,11 +1,14 @@
 package com.example.hck3rz.hck3rz;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,12 +22,13 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-        public static MainActivity instance;
 
 
-        private static Button okButton;
-        private static TextView errorMessage;
-        private Player dummyPlayer;
+    private static Button okButton;
+    private static TextView errorMessage;
+
+    public static MainActivity instance;
+    private Player dummyPlayer;
 
 
         @Override
@@ -39,6 +43,20 @@ public class MainActivity extends AppCompatActivity {
 
             dummyPlayer = Player.loadPlayerObject(MainActivity.this);
 
+
+                Intent intent = new Intent(".DesktopActivity");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+
+
+
+
+    public void loginSound(View v){
+
+        Utilities.SoundUtilities.playSound(this,R.raw.microsoft_windows_xp_startup_sound);
+
+
             //Attempt to load in info of last logged in player.
             if (dummyPlayer != null) {
                 TextView user = findViewById(R.id.userNameEditText);
@@ -51,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             //Load in save data to text fields here if you can find it!!!
         }
+
 
         public void OnClickButtonListener() {
 
@@ -119,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(".DesktopActivity");
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
+
+                    loginSound(view);
                 }
             });
         }
