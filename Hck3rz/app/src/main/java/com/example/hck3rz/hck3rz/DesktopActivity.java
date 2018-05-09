@@ -1,5 +1,9 @@
 package com.example.hck3rz.hck3rz;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+
+
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.os.Vibrator;
 import android.widget.ImageButton;
 import android.widget.TextView;

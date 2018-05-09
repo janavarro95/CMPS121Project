@@ -12,6 +12,12 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
 
+        android:layout_marginBottom="8dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/mailButton"
+
+
+
 
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
@@ -31,37 +37,27 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
 
-
-        android:layout_marginEnd="292dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="292dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/newsButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/terminalButton"
+
         app:srcCompat="@drawable/email" />
 
     <ImageButton
         android:id="@+id/newsButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
-
-
-        android:layout_marginEnd="290dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="290dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@null"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mailButton"
         app:srcCompat="@drawable/news" />
 
     <ImageButton
@@ -75,6 +71,7 @@
 
         android:background="@null"
         android:scaleType="fitCenter"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newsButton"
         app:srcCompat="@drawable/settings" />
