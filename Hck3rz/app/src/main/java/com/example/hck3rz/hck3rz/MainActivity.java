@@ -1,18 +1,12 @@
 package com.example.hck3rz.hck3rz;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-<<<<<<< HEAD
-import android.widget.EditText;
-
-public class MainActivity extends AppCompatActivity {
-    public static String user_name;
-    public static String password;
-
-=======
 import android.widget.TextView;
 
 import User.Player;
@@ -21,7 +15,6 @@ import Utilities.ColorUtilities;
 public class MainActivity extends AppCompatActivity {
 
     private MainActivity instance;
->>>>>>> DesktopDev
     private static Button okButton;
     private static TextView errorMessage;
 
@@ -35,19 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void OnClickButtonListener(){
-<<<<<<< HEAD
-        okButton = findViewById(R.id.okButton);
-        okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // store the username and password in static strings
-                // so that you can access them from other activities
-                EditText name = findViewById(R.id.userNameEditText);
-                user_name = name.getText().toString();
-
-                EditText psw = findViewById(R.id.passwordEditText);
-                password = psw.getText().toString();
-=======
 
         okButton = (Button) findViewById(R.id.okButton);
         okButton.setOnClickListener(new View.OnClickListener() {
@@ -77,13 +57,19 @@ public class MainActivity extends AppCompatActivity {
 
                 Player.Username=username;
                 Player.Password=password;
->>>>>>> DesktopDev
 
                 Intent intent = new Intent(".DesktopActivity");
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
+
+                loginSound(view);
             }
         });
+    }
+    public void loginSound(View v){
+
+        Utilities.SoundUtilities.playSound(this,R.raw.microsoft_windows_xp_startup_sound);
+
     }
 
 }
