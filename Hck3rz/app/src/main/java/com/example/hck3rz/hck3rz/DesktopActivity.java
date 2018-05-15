@@ -91,4 +91,9 @@ public class DesktopActivity extends AppCompatActivity {
         //intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
+
+    public void optionsClick(View v){
+        Intent i = new Intent(this,OptionsActivity.class);
+        startActivity(i);
+    }
 }
