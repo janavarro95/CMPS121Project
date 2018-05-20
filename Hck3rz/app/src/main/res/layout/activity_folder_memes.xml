@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FolderActivities.FolderActivityMemes">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/FOLDER_ACTIVITY_MEMES_TOOLBAR"
+        android:layout_width="900dp"
+        android:layout_height="64dp"
+        android:background="?attr/colorButtonNormal"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/FOLDER_ACTIVITY_MEMES_IMAGE_BUTTON_EXIT_BUTTON"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="13dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="close"
+        android:src="@drawable/closebutton"
+        app:layout_constraintBottom_toBottomOf="@+id/FOLDER_ACTIVITY_MEMES_TOOLBAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </ImageButton>
+
+</android.support.constraint.ConstraintLayout>

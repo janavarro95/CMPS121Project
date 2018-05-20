@@ -19,7 +19,10 @@ public class OptionsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Game.activity=this;
+        Game.SetFullScreen();
         setContentView(R.layout.activity_options);
+
 
         muteButton=findViewById(R.id.OPTIONS_ACTIVITY_BUTTON_MUTE);
         volumBar = findViewById(R.id.OPTIONS_ACTIVITY_VOLUME_SLIDER);

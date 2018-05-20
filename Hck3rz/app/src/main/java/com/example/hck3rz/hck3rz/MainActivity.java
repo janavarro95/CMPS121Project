@@ -36,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            Game.activity=this;
+            Game.SetFullScreen();
             setContentView(R.layout.activity_main);;
             instance = this;
             PostMan.initializeEmails(this);
-            Game.currentAppContext=this;
+
 
             Game.options=new Options(new SoundOptions(1.00f,false)); //Create some new game options.
 

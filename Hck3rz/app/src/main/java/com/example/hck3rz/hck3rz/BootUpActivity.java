@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 
+import User.Game;
 import User.IFunction;
 import User.TimerWrapper;
 
@@ -17,7 +18,11 @@ public class BootUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Game.activity=this;
+        Game.SetFullScreen();
         setContentView(R.layout.activity_boot_up);
+
 
         progressBar=findViewById(R.id.BOOTUP_ACTIVITY_PROGRESS_BAR_LOADING_BAR);
 

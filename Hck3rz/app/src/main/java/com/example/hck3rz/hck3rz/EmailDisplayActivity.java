@@ -26,8 +26,10 @@ public class EmailDisplayActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Game.activity=this;
+        Game.SetFullScreen();
         setContentView(R.layout.activity_email_display);
-        Game.currentAppContext=this;
+
         returnButton = findViewById(R.id.BUTTON_RETURN_TO_INBOX);
         emailContents =findViewById(R.id.TEXT_VIEW_EMAIL_CONTENTS);
 
