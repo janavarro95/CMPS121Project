@@ -29,7 +29,7 @@
         </activity>
 
 
-        <activity android:name=".MatrixDigitalRainGame">
+        <activity android:name=".MatrixDigitalRainActivity">
         <intent-filter>
             <action android:name=".MatrixDigitalRainGame" />
 
