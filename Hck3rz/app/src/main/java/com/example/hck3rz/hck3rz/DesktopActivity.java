@@ -22,14 +22,15 @@ import User.PostMan;
 
 import android.content.Intent;
 
+import com.example.hck3rz.hck3rz.FolderActivities.FolderActivityMemes;
+
 public class DesktopActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Game.currentAppContext=this;
-        requestWindowFeature(Window.FEATURE_NO_TITLE); //Removes the ugly title for the app.
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN); //Makes the activity app fullscreen.
+        Game.activity=this;
+        Game.SetFullScreen();
 
         setContentView(R.layout.activity_desktop);
 
@@ -90,5 +91,15 @@ public class DesktopActivity extends AppCompatActivity {
         Intent intent=new Intent(this,EmailInboxActivity.class);
         //intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
+    }
+
+    public void optionsClick(View v){
+        Intent i = new Intent(this,OptionsActivity.class);
+        startActivity(i);
+    }
+
+    public void memesFolderClick(View v){
+        Intent i = new Intent(this, FolderActivityMemes.class);
+        startActivity(i);
     }
 }

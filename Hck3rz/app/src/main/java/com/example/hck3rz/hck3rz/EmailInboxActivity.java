@@ -29,8 +29,10 @@ public class EmailInboxActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Game.activity=this;
+        Game.SetFullScreen();
         setContentView(R.layout.activity_email_inbox);
-        Game.currentAppContext=this;
+
         instance=this;
 
         inboxList=findViewById(R.id.LIST_VIEW_EMAIL_INBOX);
