@@ -14,8 +14,10 @@ public class TerminalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Game.activity=this;
+        Game.SetFullScreen();
         setContentView(R.layout.activity_terminal);
-        Game.currentAppContext=this;
+
 
         // get the display text
         TextView tv = findViewById(R.id.TerminalView);

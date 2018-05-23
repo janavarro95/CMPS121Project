@@ -17,6 +17,8 @@ public class TimerWrapper {
      */
     public Timer timer;
 
+    public IFunction function;
+
     /**
      * The unqiue id of the timer.
      */
@@ -32,11 +34,6 @@ public class TimerWrapper {
     public int timeRemaining;
 
     /**
-     * The hardcoded function id of the timer.
-     */
-    public String functionID;
-
-    /**
      * Checks whether or not the timer resets itself after it runs out of time.
      */
     public boolean doesLoop;
@@ -46,15 +43,16 @@ public class TimerWrapper {
      */
     public boolean isPaused;
 
+    private int interval;
+
 
     /**
      * Creates a timer wrapper that handles basic timer functionality.
      * @param TimerID
      * @param maxTime
-     * @param functionID
      * @param doesFunctionLoop
      */
-    public TimerWrapper(String TimerID,int maxTime,String functionID,boolean doesFunctionLoop, boolean isPaused){
+    public TimerWrapper(String TimerID,int maxTime,IFunction function,boolean doesFunctionLoop, boolean isPaused, int interval){
 
         this.timer=new Timer();
         this.timerID=TimerID;
@@ -62,37 +60,32 @@ public class TimerWrapper {
         this.timeRemaining=maxTime;
         this.maxTime=maxTime;
 
-        this.functionID=functionID;
+        this.function=function;
 
         this.doesLoop=doesFunctionLoop;
         this.isPaused=isPaused;
+        this.interval=interval;
 
-        setSchedule(this);
+        setSchedule(this, interval);
+
     }
 
     /**
      * Sets the functions to run when the timer's internal currentTimeRemaining value hits 0;
      * @param tWrapper
      */
-    private void setSchedule(final TimerWrapper tWrapper){
+    private void setSchedule(final TimerWrapper tWrapper, int interval){
         tWrapper.timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 if (isPaused == false) {
                     tWrapper.tickTimerOneSecond();
                     if (tWrapper.timeRemaining == 0) {
-                        //Not the best way to do this but I don't know if java has function pointers.
-                        if (tWrapper.functionID == "Say Hello") {
-                            TimerTasks.sayHello();
-                            if (tWrapper.doesLoop) {
-                                tWrapper.restart();
-                            }
-                        }
-
+                        function.execute();
                     }
                 }
             }
-        },1000);
+        },interval);
     }
 
     /**
@@ -107,6 +100,7 @@ public class TimerWrapper {
      */
     public void tickTimerOneSecond(){
 
+        Log.v("Timer Tick","Tick timer one interval");
         if(this.timeRemaining <= 0 && this.doesLoop){
             this.restart();
         }
@@ -114,6 +108,20 @@ public class TimerWrapper {
             return;
         }
         this.timeRemaining--;
+        this.function.countDownExecute();
+        Log.v("Timer Tick Finish","Time remaining: " +Integer.toString(this.timeRemaining));
+
+        if(this.doesLoop==true && this.timeRemaining==0) {
+            setSchedule(this, this.interval);
+            return;
+        }
+        else if (this.timeRemaining!=0){
+            setSchedule(this,this.interval);
+            return;
+        }
+        else{
+            return;
+        }
     }
 
     /**
@@ -210,13 +218,13 @@ public class TimerWrapper {
      *
      * @param timerID
      * @param maxTime
-     * @param functID
+     * @param function
      * @param doesLoop Checks whether or
      * @param isPaused If false the timer will start counting down immediately. If true, then it will need to be manually started.
      */
-    public static void createTimer(String timerID, int maxTime, String functID, boolean doesLoop, boolean isPaused){
+    public static void createTimer(String timerID, int maxTime, IFunction function, boolean doesLoop, boolean isPaused, int interval){
         if(timers==null) timers=new ArrayList<>();
-        TimerWrapper t= new TimerWrapper(timerID,maxTime,functID,doesLoop,isPaused);
+        TimerWrapper t= new TimerWrapper(timerID,maxTime,function,doesLoop,isPaused,interval);
         timers.add(t);
     }
 

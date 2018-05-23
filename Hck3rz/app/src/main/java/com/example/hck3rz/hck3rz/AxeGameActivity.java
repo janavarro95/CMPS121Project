@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import User.Game;
+
 public class AxeGameActivity extends AppCompatActivity {
     private String[] contents = new String[4 * 6]; // 6 is collumb height
     private TextView tv;  // the text view that contains all the console text
@@ -19,7 +21,10 @@ public class AxeGameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Game.activity=this;
+        Game.SetFullScreen();
         setContentView(R.layout.activity_axe_game_activity);
+
 
         // get the references
         tv = findViewById(R.id.GameView);
