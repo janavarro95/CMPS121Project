@@ -5,18 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MatrixDigitalRainGame">
+    tools:context=".MatrixDigitalRainActivity">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/your_image"
+        <TextView
+            android:id="@+id/code_rain_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/login_image" />
+            android:textColor="@color/green"
+            android:onClick="onClick"
+            android:clickable="true"/>
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
