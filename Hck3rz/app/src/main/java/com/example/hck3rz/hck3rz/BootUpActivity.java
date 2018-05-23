@@ -15,6 +15,7 @@ public class BootUpActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
 
+    //Custom font for the logo made at https://fontmeme.com/pixel-fonts/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
