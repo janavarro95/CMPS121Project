@@ -45,6 +45,8 @@ public class TimerWrapper {
 
     private int interval;
 
+    public TimerWrapper instance;
+
 
     /**
      * Creates a timer wrapper that handles basic timer functionality.
@@ -65,6 +67,7 @@ public class TimerWrapper {
         this.doesLoop=doesFunctionLoop;
         this.isPaused=isPaused;
         this.interval=interval;
+        this.instance=this;
 
         setSchedule(this, interval);
 
@@ -81,7 +84,14 @@ public class TimerWrapper {
                 if (isPaused == false) {
                     tWrapper.tickTimerOneSecond();
                     if (tWrapper.timeRemaining == 0) {
-                        function.execute();
+                        final TimerWrapper t=tWrapper;
+                        Game.activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                function.execute();
+                            }
+                        });
+
                     }
                 }
             }
@@ -108,7 +118,14 @@ public class TimerWrapper {
             return;
         }
         this.timeRemaining--;
-        this.function.countDownExecute();
+        final TimerWrapper t=this;
+        Game.activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                t.function.countDownExecute();
+            }
+        });
+
         Log.v("Timer Tick Finish","Time remaining: " +Integer.toString(this.timeRemaining));
 
         if(this.doesLoop==true && this.timeRemaining==0) {

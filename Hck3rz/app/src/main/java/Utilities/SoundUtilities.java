@@ -24,6 +24,13 @@ public class SoundUtilities {
             Log.v("Play the sound","");
             mp.setVolume(Game.options.soundOptions.getVolume(),Game.options.soundOptions.getVolume());
             mp.start();
+
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+
+                };
+            });
             return true;
         }
         catch (Exception err){
@@ -47,6 +54,13 @@ public class SoundUtilities {
             Log.v("Play the sound","");
             mp.setVolume(volume,volume);
             mp.start();
+
+            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+
+                };
+            });
             return true;
         }
         catch (Exception err){
@@ -54,5 +68,4 @@ public class SoundUtilities {
             return false;
         }
     }
-
 }

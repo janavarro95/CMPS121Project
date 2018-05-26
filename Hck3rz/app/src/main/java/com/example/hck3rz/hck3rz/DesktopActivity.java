@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.os.Vibrator;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import User.Game;
@@ -55,6 +56,15 @@ public class DesktopActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //Make the image view a button instead.
+        ImageView simonSaysButton=findViewById(R.id.DESKTOP_ACTIVITY_IMAGE_BUTTON_SIMON_SAYS);
+        simonSaysButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                simonSays(v);
+            }
+        });
 
     }
 
@@ -100,6 +110,11 @@ public class DesktopActivity extends AppCompatActivity {
 
     public void memesFolderClick(View v){
         Intent i = new Intent(this, FolderActivityMemes.class);
+        startActivity(i);
+    }
+
+    public void simonSays(View v){
+        Intent i = new Intent(this,MinigameSimonSaysActivity.class);
         startActivity(i);
     }
 }
