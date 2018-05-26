@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,6 +14,7 @@ import java.util.Random;
 import User.Game;
 import User.IFunction;
 import User.TimerWrapper;
+import Utilities.ColorUtilities;
 import Utilities.SoundUtilities;
 
 import static com.example.hck3rz.hck3rz.MinigameSimonSaysActivity.direction.down;
@@ -46,8 +48,13 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
     ImageButton rightButton;
 
     TimerWrapper timer;
+    TimerWrapper countDownTimer;
+
 
     int currentIndex;
+    int maxTime;
+
+    int score;
 
     AppCompatActivity activity;
 
@@ -57,6 +64,8 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
         setContentView(R.layout.activity_minigame_simon_says);
 
         Game.activity=this;
+        maxTime=10;
+        score=0;
         downButton = findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_DOWN);
         upButton = findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_UP);
         leftButton = findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_LEFT);
@@ -81,6 +90,24 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                 resetAllButtons();
                 enableUserInput();
                 currentIndex=0;
+
+                countDownTimer=new TimerWrapper("CountdownTimer", maxTime, null,false,false,1000);
+                countDownTimer.function=new IFunction() {
+                    @Override
+                    public void execute() {
+                        gameOver();
+                    }
+
+                    @Override
+                    public void countDownExecute() {
+                        TextView texty=findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME_REMAINING);
+                        String time="";
+                        for(int i=0; i<countDownTimer.timeRemaining;i++){
+                            time+="*";
+                        }
+                        texty.setText(time);
+                    }
+                };
             }
 
             @Override
@@ -107,6 +134,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
             }
 
         },false,false,1000);
+
 
     }
 
@@ -185,6 +213,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if(validateInput(direction.down)) {
                         downButtonClick();
+                        incrementScore();
                         isRoundFinished();
                     }
                     return true;
@@ -206,6 +235,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if(validateInput(direction.up)) {
                         upButtonClick();
+                        incrementScore();
                         isRoundFinished();
                     }
                     return true;
@@ -227,6 +257,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if(validateInput(direction.left)) {
                         leftButtonClick();
+                        incrementScore();
                         isRoundFinished();
                     }
                     return true;
@@ -249,6 +280,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if(validateInput(direction.right)) {
                         rightButtonClick();
+                        incrementScore();
                         isRoundFinished();
                     }
                     return true;
@@ -341,10 +373,47 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
     public boolean isRoundFinished(){
         if(currentIndex==randomDirectionList.size()){
             //Add points
+            countDownTimer.stop();
             newRound();
             return true;
         }
         else return false;
+    }
+
+    public void gameOver(){
+        if(isRoundFinished()) return; //prevent accidental game overs.
+        TextView timeText=findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME);
+        ColorUtilities.setTextColor(timeText,this,R.color.errorRedMessage);
+        TextView scoreValue=findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_VALUE);
+        ColorUtilities.setTextColor(scoreValue,this,R.color.errorRedMessage);
+
+
+        SoundUtilities.playSound(Game.activity,R.raw.buttonbooperror);
+        badDownInput();
+        badLeftInput();
+        badRightInput();
+        badUpInput();
+
+        disableUserInput();
+        timer=new TimerWrapper("BadTimer", 1, new IFunction() {
+            @Override
+            public void execute() {
+                finish();
+            }
+
+            @Override
+            public void countDownExecute() {
+
+            }
+        },false,false,2000);
+        countDownTimer.stop();
+    }
+
+    public void incrementScore(){
+        this.score++;
+        String scoreString=Integer.toString(this.score);
+        TextView scoreVal=findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_VALUE);
+        scoreVal.setText(scoreString);
     }
 
 }

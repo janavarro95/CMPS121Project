@@ -82,4 +82,32 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="30dp"
+        android:text="Score:"
+        android:textColor="@color/terminalText"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME" />
+
+    <TextView
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_VALUE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="28dp"
+        android:text="0"
+        android:textColor="@color/terminalText"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME_REMAINING" />
 </android.support.constraint.ConstraintLayout>
