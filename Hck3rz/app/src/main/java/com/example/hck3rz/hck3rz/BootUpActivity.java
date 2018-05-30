@@ -7,6 +7,7 @@ import android.widget.ProgressBar;
 
 import User.Game;
 import User.IFunction;
+import User.PostMan;
 import User.TimerWrapper;
 
 public class BootUpActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class BootUpActivity extends AppCompatActivity {
         Game.activity=this;
         Game.SetFullScreen();
         setContentView(R.layout.activity_boot_up);
-
+        PostMan.hasNewMail=false;
 
         progressBar=findViewById(R.id.BOOTUP_ACTIVITY_PROGRESS_BAR_LOADING_BAR);
 

@@ -26,6 +26,7 @@ public class EmailInboxActivity extends AppCompatActivity {
     ListView inboxList;
     EmailInboxActivity instance;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +40,8 @@ public class EmailInboxActivity extends AppCompatActivity {
         InboxAdapter inboxAdapter=new InboxAdapter();
         inboxList.setAdapter(inboxAdapter);
 
-        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"));
-        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("momLovesYou"));
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"),false);
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("momLovesYou"),false);
 
         inboxList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

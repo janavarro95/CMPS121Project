@@ -65,7 +65,29 @@ public class DesktopActivity extends AppCompatActivity {
                 simonSays(v);
             }
         });
+        newMailvisible();
 
+    }
+
+    public void newMailvisible(){
+        ImageView newMailIcon=findViewById(R.id.DESKTOP_ACTIVITY_IMAGE_VIEW_NEW_MAIL_ICON);
+        ImageButton mailButton=findViewById(R.id.mailButton);
+        if(PostMan.hasNewMail==false){
+            newMailIcon.setVisibility(View.INVISIBLE);
+            mailButton.setImageResource(R.drawable.email);
+            PostMan.playNewMailSound();
+        }
+        else{
+            newMailIcon.setVisibility(View.VISIBLE);
+            mailButton.setImageResource(R.drawable.unreadmail);
+            PostMan.playNewMailSound();
+        }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        newMailvisible();
     }
 
     @Override

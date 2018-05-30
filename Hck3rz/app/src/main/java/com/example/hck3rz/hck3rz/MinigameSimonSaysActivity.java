@@ -25,7 +25,6 @@ import static com.example.hck3rz.hck3rz.MinigameSimonSaysActivity.direction.up;
 
 /*
 TODO:
-give user 10 seconds to put in correct input before failure.
 make a score section for this game with a high score feature.
 */
 
@@ -54,7 +53,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
     int currentIndex;
     int maxTime;
 
-    int score;
+    public int score;
 
     AppCompatActivity activity;
 
@@ -138,13 +137,6 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
 
     }
 
-    public static void sayHello(){
-        Log.v("Hello","Mr debug log.");
-    }
-
-    public static void sayGoodbye(){
-        Log.v("Bye bye","toxic sad people");
-    }
 
     public void generateRandomDirection(){
         for(int i=0; i<currentAmountToPutIn; i++) {
@@ -190,6 +182,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
             if(dir==direction.left) badLeftInput();
             if(dir==direction.right) badRightInput();
             disableUserInput();
+            countDownTimer.stop();
             timer=new TimerWrapper("BadTimer", 1, new IFunction() {
                 @Override
                 public void execute() {
@@ -219,8 +212,6 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                     return true;
                 } else if (event.getAction() == MotionEvent.ACTION_UP||
                         event.getAction() == MotionEvent.ACTION_CANCEL) {
-                    //resetSize();
-                    MinigameSimonSaysActivity.sayGoodbye();
                     downButton.setImageResource(R.drawable.downarrowdark);
                     return true;
                 }
@@ -241,8 +232,6 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                     return true;
                 } else if (event.getAction() == MotionEvent.ACTION_UP||
                         event.getAction() == MotionEvent.ACTION_CANCEL) {
-                    //resetSize();
-                    MinigameSimonSaysActivity.sayGoodbye();
                     upButton.setImageResource(R.drawable.uparrowdark);
                     return true;
                 }
@@ -263,8 +252,6 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                     return true;
                 } else if (event.getAction() == MotionEvent.ACTION_UP||
                         event.getAction() == MotionEvent.ACTION_CANCEL) {
-                    //resetSize();
-                    MinigameSimonSaysActivity.sayGoodbye();
                     leftButton.setImageResource(R.drawable.leftarrowdark);
                     return true;
                 }
@@ -286,8 +273,6 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
                     return true;
                 } else if (event.getAction() == MotionEvent.ACTION_UP||
                         event.getAction() == MotionEvent.ACTION_CANCEL) {
-                    //resetSize();
-                    MinigameSimonSaysActivity.sayGoodbye();
                     rightButton.setImageResource(R.drawable.rightarrowdark);
                     return true;
                 }
@@ -386,6 +371,8 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
         ColorUtilities.setTextColor(timeText,this,R.color.errorRedMessage);
         TextView scoreValue=findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_VALUE);
         ColorUtilities.setTextColor(scoreValue,this,R.color.errorRedMessage);
+        TextView scoreText=findViewById(R.id.MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_TEXT);
+        ColorUtilities.setTextColor(scoreText,this,R.color.errorRedMessage);
 
 
         SoundUtilities.playSound(Game.activity,R.raw.buttonbooperror);
@@ -398,6 +385,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
         timer=new TimerWrapper("BadTimer", 1, new IFunction() {
             @Override
             public void execute() {
+                Game.player.statistics.score+=score;
                 finish();
             }
 

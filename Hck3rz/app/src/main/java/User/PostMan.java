@@ -15,12 +15,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-/*
-TODO: Load email contents from .txt files
-TODO: Make email display activity.
- */
+import Utilities.SoundUtilities;
+
+//sound reference for you got mail: http://www.thesoundarchive.com/email/youGotmail.wav
+
 public class PostMan {
 
+
+    public static boolean hasNewMail;
 
     /**
      * Resource pool of all valid emails.
@@ -63,7 +65,7 @@ public class PostMan {
         for(int i=0; i<filesList.length;i++){
             if(filesList[i].contains(".email")) { //If we find an email file process it.
                 Email e = Email.load(context, filesList[i]);
-                addEmailToInbox(e);
+                addEmailToInbox(e,false);
                 //Game.player.emails.add(e); //Add the email back into the player's inbox;
             }
             else{
@@ -90,13 +92,17 @@ public class PostMan {
      * Adds an email to the player's inbox if they haven't received the same email before.
      * @param e The email to add to the player's inbox.
      */
-    public static void addEmailToInbox(Email e){
+    public static void addEmailToInbox(Email e,boolean playSound){
         for(int i=0; i<Game.player.emails.size();i++){
             if(e.uniqueID==Game.player.emails.get(i).uniqueID){
                 Log.v("Postman Add Email Error","Error, player already has an email with same unique id");
                 return;
             }
         }
+        if(playSound==true) {
+            playNewMailSound();
+        }
+        hasNewMail=true;
         Game.player.emails.add(e); //If we don't have an email with the same unique ID add it to my inbox.
     }
 
@@ -151,9 +157,6 @@ public class PostMan {
         return true;
     }
 
-    public static void loadContentsFromDisk(String uniqueID){
-
-    }
 
 
     //Reference: https://stackoverflow.com/questions/14376807/how-to-read-write-string-from-a-file-in-android
@@ -185,6 +188,10 @@ public class PostMan {
         }
 
         return ret;
+    }
+
+    public static void playNewMailSound(){
+        SoundUtilities.playSound(Game.activity,R.raw.youGotmail);
     }
 
 }

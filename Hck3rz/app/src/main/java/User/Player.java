@@ -37,7 +37,7 @@ public class Player {
     public ArrayList<Email> emails; //Save these.
 
 
-    //public PlayerStatistics statistics;
+    public PlayerStatistics statistics;
 
     /**
      * The file name that the player's information is saved/loaded from.
@@ -57,7 +57,7 @@ public class Player {
         this.username = username;
         this.password = password;
         this.emails=new ArrayList<>();
-        //this.statistics=new PlayerStatistics();
+        this.statistics=new PlayerStatistics();
     }
 
     /**
@@ -79,6 +79,7 @@ public class Player {
 
             os.writeUTF(username);
             os.writeUTF(password);
+            this.statistics.save(context);
             //os.writeObject(this); //Save the player to the file.
             os.close(); //Close the object stream.
             fos.close(); //Close the file stream.
@@ -109,6 +110,7 @@ public class Player {
 
             p.username=username;
             p.password=password;
+            PlayerStatistics.load(context);
 
             is.close(); //Close the object input stream.
             fis.close();

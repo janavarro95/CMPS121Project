@@ -84,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_TEXT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="46dp"
@@ -108,6 +108,6 @@
         android:textColor="@color/terminalText"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_TEXT"
         app:layout_constraintTop_toBottomOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME_REMAINING" />
 </android.support.constraint.ConstraintLayout>
