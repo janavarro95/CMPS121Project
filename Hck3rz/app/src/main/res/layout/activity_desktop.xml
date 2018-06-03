@@ -115,7 +115,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/terminalButton"
-        app:srcCompat="@drawable/NewMailNotification" />
+        app:srcCompat="@drawable/newmailnotification" />
 
     <ImageView
         android:id="@+id/TaskBar"

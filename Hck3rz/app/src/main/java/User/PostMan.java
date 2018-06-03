@@ -191,7 +191,7 @@ public class PostMan {
     }
 
     public static void playNewMailSound(){
-        SoundUtilities.playSound(Game.activity,R.raw.youGotmail);
+        SoundUtilities.playSound(Game.activity,R.raw.yougotmail);
     }
 
 }
