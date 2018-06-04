@@ -8,43 +8,78 @@
     android:background="@color/black">
 
 
-    <TextView
-        android:id="@+id/GameView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="top|center"
-        android:text="8237598298572893758923759827359827359827395827582357982375982359826359826598263957263795628936572365"
-        android:textColor="@color/green"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/GameViewL"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:text="8237598298572893758923759827359827359827395827582357982375982359826359826598263957263795628936572365"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/GameViewC"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:text="8237598298572893758923759827359827359827395827582357982375982359826359826598263957263795628936572365"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/GameViewR"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:text="8237598298572893758923759827359827359827395827582357982375982359826359826598263957263795628936572365"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/LeftArrow"
         android:layout_width="150dp"
-        android:layout_height="575dp"
+        android:layout_height="600dp"
         android:text="Left"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/GameView"
+        app:layout_constraintEnd_toStartOf="@+id/GameViewL"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GameView"
+        app:layout_constraintTop_toBottomOf="@+id/GameViewL"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/RightArrow"
         android:layout_width="150dp"
-        android:layout_height="575dp"
+        android:layout_height="600dp"
         android:text="Right"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/GameView"
-        app:layout_constraintTop_toBottomOf="@+id/GameView"
+        app:layout_constraintStart_toEndOf="@+id/GameViewL"
+        app:layout_constraintTop_toBottomOf="@+id/GameViewL"
         app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
