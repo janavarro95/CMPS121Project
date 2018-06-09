@@ -40,8 +40,7 @@ public class EmailInboxActivity extends AppCompatActivity {
         InboxAdapter inboxAdapter=new InboxAdapter();
         inboxList.setAdapter(inboxAdapter);
 
-        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"),false);
-        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("momLovesYou"),false);
+
 
         inboxList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -55,6 +54,7 @@ public class EmailInboxActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
 
     /**

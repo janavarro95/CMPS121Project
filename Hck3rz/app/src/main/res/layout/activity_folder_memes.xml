@@ -9,10 +9,12 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/FOLDER_ACTIVITY_MEMES_TOOLBAR"
         android:layout_width="900dp"
-        android:layout_height="64dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="21dp"
         android:background="?attr/colorButtonNormal"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/MEMES_IMAGE_RICK_ROLL"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,5 +34,32 @@
 
 
     </ImageButton>
+
+    <ImageView
+        android:id="@+id/MEMES_IMAGE_RICK_ROLL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/MEME_Text_Rick_Roll"
+        app:layout_constraintEnd_toEndOf="@+id/MEME_Text_Rick_Roll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FOLDER_ACTIVITY_MEMES_TOOLBAR"
+        app:srcCompat="@drawable/googlechrome" />
+
+    <TextView
+        android:id="@+id/MEME_Text_Rick_Roll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="382dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Stan Standing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MEMES_IMAGE_RICK_ROLL" />
 
 </android.support.constraint.ConstraintLayout>

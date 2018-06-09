@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.hck3rz.hck3rz.MainActivity;
+import com.example.hck3rz.hck3rz.MinigameSimonSaysActivity;
 import com.example.hck3rz.hck3rz.R;
 
 import java.io.BufferedReader;
@@ -35,8 +36,8 @@ public class PostMan {
 
     public static void initializeEmails(Context context){
         EmailPool=new ArrayList<>();
-       EmailPool.add(new Email(R.drawable.email,"First Email","Unknown","unknownSender@system.net",R.drawable.email,PostMan.readFromFile(context,"FirstEmail.txt"),"FirstEmail"));
-       EmailPool.add(new Email(R.mipmap.ic_launcher,"HOT NEW EMAIL","My Mom","mom@aol.com",R.mipmap.ic_launcher,"Hello","momLovesYou"));
+       EmailPool.add(new Email(R.drawable.email,"First Email","Unknown","unknownSender@system.net",R.drawable.email,PostMan.readFromFile(context,"FirstEmail.txt"),"FirstEmail",null));
+       EmailPool.add(new Email(R.mipmap.ic_launcher,"HOT NEW EMAIL","My Mom","mom@aol.com",R.mipmap.ic_launcher,"Hello","momLovesYou",new MinigameSimonSaysActivity()));
     }
 
     /**

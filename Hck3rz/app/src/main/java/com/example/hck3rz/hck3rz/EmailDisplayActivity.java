@@ -1,5 +1,6 @@
 package com.example.hck3rz.hck3rz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ import User.PostMan;
 public class EmailDisplayActivity extends AppCompatActivity {
 
     Button returnButton;
+    Button MiniGameButton;
     TextView emailContents;
     TextView subject;
     TextView senderAddress;
@@ -55,7 +57,22 @@ public class EmailDisplayActivity extends AppCompatActivity {
         senderIcon=findViewById(R.id.IMAGE_VIEW_EMAIL_DISPLAY_SENDER_ICON);
         senderIcon.setImageResource(currentEmail.senderIcon);
 
+        MiniGameButton=findViewById(R.id.EMAIL_DISPLAY_ACTIVITY_BUTTON_ACCEPT_MINIGAME);
 
+        if(currentEmail.minigameToGoTo!=null) {
+            MiniGameButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Game.getCurrentAppContext(), currentEmail.minigameToGoTo.getClass());
+                    startActivity(i);
+                }
+            });
+        }
+        else{
+            MiniGameButton.setVisibility(View.INVISIBLE);
+        }
 
+        Game.player.readEmail(currentEmail);
+        currentEmail.readEmail();
     }
 }

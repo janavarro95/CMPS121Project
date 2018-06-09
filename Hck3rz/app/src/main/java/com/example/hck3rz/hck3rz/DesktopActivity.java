@@ -57,14 +57,10 @@ public class DesktopActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //Make the image view a button instead.
-        ImageView simonSaysButton=findViewById(R.id.DESKTOP_ACTIVITY_IMAGE_BUTTON_SIMON_SAYS);
-        simonSaysButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                simonSays(v);
-            }
-        });
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"),false);
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("momLovesYou"),false);
+        PostMan.playNewMailSound();
+
         newMailvisible();
 
     }
@@ -72,15 +68,25 @@ public class DesktopActivity extends AppCompatActivity {
     public void newMailvisible(){
         ImageView newMailIcon=findViewById(R.id.DESKTOP_ACTIVITY_IMAGE_VIEW_NEW_MAIL_ICON);
         ImageButton mailButton=findViewById(R.id.mailButton);
-        if(PostMan.hasNewMail==false){
+
+        boolean hasReadAllMail=true;
+        for(int i=0;i<Game.player.emails.size();i++){
+            if(Game.player.emails.get(i).hasBeenRead==false){
+                hasReadAllMail=false;
+                break;
+            }
+        }
+        PostMan.hasNewMail=(!hasReadAllMail);
+
+        if(!PostMan.hasNewMail){
             newMailIcon.setVisibility(View.INVISIBLE);
             mailButton.setImageResource(R.drawable.email);
-            PostMan.playNewMailSound();
+            //PostMan.playNewMailSound();
         }
         else{
             newMailIcon.setVisibility(View.VISIBLE);
             mailButton.setImageResource(R.drawable.unreadmail);
-            PostMan.playNewMailSound();
+            //PostMan.playNewMailSound();
         }
     }
 

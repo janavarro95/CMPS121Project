@@ -160,5 +160,13 @@ public class Player {
         }
     }
 
+    /**
+     * Read a specific unique email and ensure that the player has read it.
+     * @param e
+     */
+    public void readEmail(Email e){
+        e.readEmail();
+    }
+
 
 }
