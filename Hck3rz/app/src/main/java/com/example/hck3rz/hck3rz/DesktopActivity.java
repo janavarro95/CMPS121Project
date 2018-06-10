@@ -19,13 +19,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import User.Game;
+import User.IFunction;
 import User.PostMan;
+import User.TimerWrapper;
+import Utilities.TimeUtilities;
 
 import android.content.Intent;
 
 import com.example.hck3rz.hck3rz.FolderActivities.FolderActivityMemes;
 
 public class DesktopActivity extends AppCompatActivity {
+
+    TimerWrapper timer;
+    TextView time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,18 @@ public class DesktopActivity extends AppCompatActivity {
         PostMan.playNewMailSound();
 
         newMailvisible();
+        time=findViewById(R.id.DESKTOP_ACTIVITY_TEXTVIEW_TIME);
+        timer=new TimerWrapper("System.Time", 1, new IFunction() {
+            @Override
+            public void execute() {
+
+            }
+
+            @Override
+            public void countDownExecute() {
+                time.setText(TimeUtilities.createTime());
+            }
+        },true,false,1000);
 
     }
 
