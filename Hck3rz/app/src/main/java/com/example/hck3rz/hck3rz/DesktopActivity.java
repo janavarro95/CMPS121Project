@@ -134,7 +134,8 @@ public class DesktopActivity extends AppCompatActivity {
 
     public void terminal_click(View v){
         Intent intent;
-        intent = new Intent(".AxeGameActivity");
+        intent = new Intent(this, MatrixDigitalRainActivity.class);
+//      intent = new Intent(".AxeGameActivity");
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
