@@ -1,6 +1,7 @@
 package User;
 
 import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.hck3rz.hck3rz.R;
 
@@ -24,6 +25,7 @@ public class Email {
     public int senderIcon;
 
     public String uniqueID;
+    public AppCompatActivity minigameToGoTo;
 
     /**
      * Default constructor.
@@ -42,7 +44,7 @@ public class Email {
      * @param contents The body of the email.
      * @param uniqueID An unique id to ensure the email is never added twice.
      */
-    public Email(int imageID,String title,String senderName,String senderEmail,int senderIcon, String contents, String uniqueID){
+    public Email(int imageID,String title,String senderName,String senderEmail,int senderIcon, String contents, String uniqueID,AppCompatActivity connectedMinigame){
         this.image=imageID;
         this.subject=title;
         this.hasBeenRead=false;
@@ -51,12 +53,13 @@ public class Email {
         this.senderEmail=senderEmail;
         this.senderIcon=senderIcon;
         this.uniqueID=uniqueID;
+        this.minigameToGoTo=connectedMinigame;
     }
 
     /**
      * Read the email and go to an email display screen.
      */
-    void readEmail(){
+    public void readEmail(){
         if(this.hasBeenRead==false){
             this.hasBeenRead=true;
             this.image=R.drawable.email; //Read email icon.

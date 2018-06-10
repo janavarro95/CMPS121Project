@@ -31,6 +31,8 @@ public class PlayerStatistics implements Serializable {
 
     public int numberOfMinigamesPlayed;
 
+    public int score;
+
     /**
      * The file name that the player's statistic information is saved/loaded from.
      */
@@ -43,6 +45,7 @@ public class PlayerStatistics implements Serializable {
         this.numberOfButtonsClicked=0;
         this.numberOfTimesLoggedIn=0;
         this.numberOfMinigamesPlayed=0;
+        this.score=0;
     }
 
 
@@ -62,7 +65,7 @@ public class PlayerStatistics implements Serializable {
 
             FileOutputStream fos = context.openFileOutput(fileSaveName, Context.MODE_PRIVATE); //Open a file stream
             ObjectOutputStream os = new ObjectOutputStream(fos); //open an object stream
-            os.writeObject(this); //Save the player statistics to the file.
+            writeObject(os); //Save the player statistics to the file.
             os.close(); //Close the object stream.
             fos.close(); //Close the file stream.
         } catch (Exception e) {
@@ -80,7 +83,7 @@ public class PlayerStatistics implements Serializable {
         try {
             FileInputStream fis = context.openFileInput(fileSaveName); //Load the file if there is one.
             ObjectInputStream is = new ObjectInputStream(fis); //Open up an object input stream.
-            PlayerStatistics playerStatistics = (PlayerStatistics) is.readObject(); //Read in the player statistics object from the stream.
+            PlayerStatistics playerStatistics = (PlayerStatistics) readObject(is); //Read in the player statistics object from the stream.
             is.close(); //Close the object input stream.
             fis.close(); //Close the file input stream.
             return playerStatistics; //Return the player statistics object.
@@ -90,18 +93,42 @@ public class PlayerStatistics implements Serializable {
         }
     }
 
-    private void readObject(ObjectInputStream aInputStream) throws ClassNotFoundException, IOException
+    public static PlayerStatistics readObject(ObjectInputStream aInputStream) throws ClassNotFoundException, IOException
     {
-        numberOfButtonsClicked = Integer.parseInt(aInputStream.readUTF());
-        numberOfTimesLoggedIn = Integer.parseInt(aInputStream.readUTF());
-        numberOfMinigamesPlayed = Integer.parseInt(aInputStream.readUTF());
+        PlayerStatistics stats=new PlayerStatistics();
+        try {
+            stats.numberOfButtonsClicked = Integer.parseInt(aInputStream.readUTF());
+        }
+        catch (Exception err){
+
+        }
+        try{
+            stats.numberOfTimesLoggedIn = Integer.parseInt(aInputStream.readUTF());
+        }
+        catch (Exception err){
+
+        }
+        try{
+            stats.numberOfMinigamesPlayed = Integer.parseInt(aInputStream.readUTF());
+        }
+        catch (Exception err){
+
+        }
+        try{
+            stats.score=Integer.parseInt(aInputStream.readUTF());
+        }
+        catch (Exception err){
+
+        }
+        return stats;
     }
 
     private void writeObject(ObjectOutputStream aOutputStream) throws IOException
     {
         aOutputStream.writeUTF(Integer.toString(numberOfButtonsClicked));
-        aOutputStream.writeUTF(Integer.toString(numberOfButtonsClicked));
-        aOutputStream.writeUTF(Integer.toString(numberOfButtonsClicked));
+        aOutputStream.writeUTF(Integer.toString(numberOfTimesLoggedIn));
+        aOutputStream.writeUTF(Integer.toString(numberOfMinigamesPlayed));
+        aOutputStream.writeUTF(Integer.toString(score));
     }
 
 }

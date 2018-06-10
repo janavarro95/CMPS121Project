@@ -26,19 +26,21 @@ public class EmailInboxActivity extends AppCompatActivity {
     ListView inboxList;
     EmailInboxActivity instance;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Game.activity=this;
+        Game.SetFullScreen();
         setContentView(R.layout.activity_email_inbox);
-        Game.currentAppContext=this;
+
         instance=this;
 
         inboxList=findViewById(R.id.LIST_VIEW_EMAIL_INBOX);
         InboxAdapter inboxAdapter=new InboxAdapter();
         inboxList.setAdapter(inboxAdapter);
 
-        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"));
-        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("momLovesYou"));
+
 
         inboxList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -52,6 +54,7 @@ public class EmailInboxActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
 
     /**

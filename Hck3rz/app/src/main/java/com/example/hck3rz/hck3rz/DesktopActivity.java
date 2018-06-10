@@ -15,21 +15,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.os.Vibrator;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import User.Game;
+import User.IFunction;
 import User.PostMan;
+import User.TimerWrapper;
+import Utilities.TimeUtilities;
 
 import android.content.Intent;
 
+import com.example.hck3rz.hck3rz.FolderActivities.FolderActivityMemes;
+
 public class DesktopActivity extends AppCompatActivity {
+
+    TimerWrapper timer;
+    TextView time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Game.currentAppContext=this;
-        requestWindowFeature(Window.FEATURE_NO_TITLE); //Removes the ugly title for the app.
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN); //Makes the activity app fullscreen.
+        Game.activity=this;
+        Game.SetFullScreen();
 
         setContentView(R.layout.activity_desktop);
 
@@ -55,6 +63,55 @@ public class DesktopActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"),false);
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("momLovesYou"),false);
+        PostMan.playNewMailSound();
+
+        newMailvisible();
+        time=findViewById(R.id.DESKTOP_ACTIVITY_TEXTVIEW_TIME);
+        timer=new TimerWrapper("System.Time", 1, new IFunction() {
+            @Override
+            public void execute() {
+
+            }
+
+            @Override
+            public void countDownExecute() {
+                time.setText(TimeUtilities.createTime());
+            }
+        },true,false,1000);
+
+    }
+
+    public void newMailvisible(){
+        ImageView newMailIcon=findViewById(R.id.DESKTOP_ACTIVITY_IMAGE_VIEW_NEW_MAIL_ICON);
+        ImageButton mailButton=findViewById(R.id.mailButton);
+
+        boolean hasReadAllMail=true;
+        for(int i=0;i<Game.player.emails.size();i++){
+            if(Game.player.emails.get(i).hasBeenRead==false){
+                hasReadAllMail=false;
+                break;
+            }
+        }
+        PostMan.hasNewMail=(!hasReadAllMail);
+
+        if(!PostMan.hasNewMail){
+            newMailIcon.setVisibility(View.INVISIBLE);
+            mailButton.setImageResource(R.drawable.email);
+            //PostMan.playNewMailSound();
+        }
+        else{
+            newMailIcon.setVisibility(View.VISIBLE);
+            mailButton.setImageResource(R.drawable.unreadmail);
+            //PostMan.playNewMailSound();
+        }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        newMailvisible();
     }
 
     @Override
@@ -91,5 +148,20 @@ public class DesktopActivity extends AppCompatActivity {
         Intent intent=new Intent(this,EmailInboxActivity.class);
         //intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
+    }
+
+    public void optionsClick(View v){
+        Intent i = new Intent(this,OptionsActivity.class);
+        startActivity(i);
+    }
+
+    public void memesFolderClick(View v){
+        Intent i = new Intent(this, FolderActivityMemes.class);
+        startActivity(i);
+    }
+
+    public void simonSays(View v){
+        Intent i = new Intent(this,MinigameSimonSaysActivity.class);
+        startActivity(i);
     }
 }

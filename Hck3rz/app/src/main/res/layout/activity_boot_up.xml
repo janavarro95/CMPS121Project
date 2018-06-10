@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/terminalBackground"
+    tools:context=".BootUpActivity">
+
+    <ImageView
+        android:id="@+id/BOOTUP_ACTIVITY_IMAGE_VIEW_ANDROID_MASCOT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/androidmascot" />
+
+    <ImageView
+        android:id="@+id/BOOTUP_ACTIVITY_IMAGE_VIEW_HACKERS_LOGO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BOOTUP_ACTIVITY_IMAGE_VIEW_ANDROID_MASCOT"
+        app:srcCompat="@drawable/hackerslogo" />
+
+    <ProgressBar
+        android:id="@+id/BOOTUP_ACTIVITY_PROGRESS_BAR_LOADING_BAR"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:indeterminate="false"
+        android:max="4"
+        android:progress="0"
+        android:progressBackgroundTint="@color/terminalText"
+        android:progressTint="@color/terminalText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BOOTUP_ACTIVITY_IMAGE_VIEW_HACKERS_LOGO" />
+
+</android.support.constraint.ConstraintLayout>

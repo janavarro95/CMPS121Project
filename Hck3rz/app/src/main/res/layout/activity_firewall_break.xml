@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/terminalBackground"
+    tools:context=".FolderActivities.FirewallBreakActivity"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_11"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="174dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_12"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="174dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_13"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="174dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_14"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="174dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_15"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="174dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_6"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_7"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_8"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_9"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_10"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="108dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_IMAGEVIEW_CREEPYSMILE"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_5"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_4"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_3"
+        android:layout_width="64dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="167dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/FIREWALL_ACTIVITY_TEXT_VIEW_WIN_TEXT"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintStart_toEndOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_1"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_brick_button" />
+
+    <TextView
+        android:id="@+id/FIREWALL_ACTIVITY_TEXT_VIEW_WIN_TEXT"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="275dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginStart="64dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_3" />
+
+    <ImageView
+        android:id="@+id/FIREWALL_ACTIVITY_IMAGEVIEW_CREEPYSMILE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginStart="132dp"
+        app:layout_constraintBottom_toBottomOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_13"
+        app:layout_constraintEnd_toStartOf="@+id/FIREWALL_ACTIVITY_FIREWALL_BRICK_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/creepyface" />
+</android.support.constraint.ConstraintLayout>

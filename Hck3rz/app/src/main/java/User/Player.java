@@ -37,7 +37,9 @@ public class Player {
     public ArrayList<Email> emails; //Save these.
 
 
-    //public PlayerStatistics statistics;
+    public PlayerStatistics statistics;
+
+    public boolean hasSeenTutorial;
 
     /**
      * The file name that the player's information is saved/loaded from.
@@ -57,7 +59,8 @@ public class Player {
         this.username = username;
         this.password = password;
         this.emails=new ArrayList<>();
-        //this.statistics=new PlayerStatistics();
+        this.statistics=new PlayerStatistics();
+        this.hasSeenTutorial=false;
     }
 
     /**
@@ -79,6 +82,7 @@ public class Player {
 
             os.writeUTF(username);
             os.writeUTF(password);
+            this.statistics.save(context);
             //os.writeObject(this); //Save the player to the file.
             os.close(); //Close the object stream.
             fos.close(); //Close the file stream.
@@ -109,12 +113,14 @@ public class Player {
 
             p.username=username;
             p.password=password;
+            PlayerStatistics stats=PlayerStatistics.load(context);
 
             is.close(); //Close the object input stream.
             fis.close();
 
             //fis.close(); //Close the file input stream.
             Game.player=p; //Set the loaded player's reference to the game's player reference.
+            p.statistics=stats;
             //Game.player.statistics=PlayerStatistics.load(context); //Load in the player's statistics.
             //Game.player.statistics.numberOfTimesLoggedIn++; //Increment the number of times the player has logged in.
 
@@ -156,6 +162,14 @@ public class Player {
             Log.v("PlayerLoad",err.toString()); //An error occured when loading in the player's save data.
             return null;
         }
+    }
+
+    /**
+     * Read a specific unique email and ensure that the player has read it.
+     * @param e
+     */
+    public void readEmail(Email e){
+        e.readEmail();
     }
 
 
