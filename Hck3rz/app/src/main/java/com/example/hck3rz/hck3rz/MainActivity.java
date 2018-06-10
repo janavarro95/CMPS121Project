@@ -20,6 +20,8 @@ import User.PostMan;
 import Utilities.ColorUtilities;
 import android.widget.EditText;
 
+import com.example.hck3rz.hck3rz.FolderActivities.TutorialActivity;
+
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
@@ -134,8 +136,14 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     loginSound(view);
+                    Intent intent;
 
-                    Intent intent = new Intent(".DesktopActivity");
+                    if(!Game.player.hasSeenTutorial) {
+                        intent = new Intent(Game.activity, TutorialActivity.class);
+                    }
+                    else{
+                        intent = new Intent(".DesktopActivity");
+                    }
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
 

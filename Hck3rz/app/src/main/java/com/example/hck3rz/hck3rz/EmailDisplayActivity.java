@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import User.DialogueText;
 import User.Email;
 import User.Game;
 import User.PostMan;
@@ -22,6 +23,8 @@ public class EmailDisplayActivity extends AppCompatActivity {
     TextView senderName;
 
     ImageView senderIcon;
+
+    DialogueText text;
 
     public static Email currentEmail;
 
@@ -43,7 +46,9 @@ public class EmailDisplayActivity extends AppCompatActivity {
             }
         });
 
-        emailContents.setText(currentEmail.contents);
+        text=new DialogueText(emailContents,currentEmail.contents,DialogueText.SPEED_FAST);
+        text.startDialogue();
+        //emailContents.setText(currentEmail.contents);
 
         subject=findViewById(R.id.TEXT_VIEW_EMAIL_DISPLAY_SUBJECT);
         subject.setText(currentEmail.subject);

@@ -110,7 +110,7 @@ public class TimerWrapper {
      */
     public void tickTimerOneSecond(){
 
-        Log.v("Timer Tick","Tick timer one interval");
+        //Log.v("Timer Tick","Tick timer one interval");
         if(this.timeRemaining <= 0 && this.doesLoop){
             this.restart();
         }
@@ -126,7 +126,7 @@ public class TimerWrapper {
             }
         });
 
-        Log.v("Timer Tick Finish","Time remaining: " +Integer.toString(this.timeRemaining));
+        //Log.v("Timer Tick Finish","Time remaining: " +Integer.toString(this.timeRemaining));
 
         if(this.doesLoop==true && this.timeRemaining==0) {
             setSchedule(this, this.interval);

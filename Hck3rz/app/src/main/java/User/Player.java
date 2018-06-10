@@ -39,6 +39,8 @@ public class Player {
 
     public PlayerStatistics statistics;
 
+    public boolean hasSeenTutorial;
+
     /**
      * The file name that the player's information is saved/loaded from.
      */
@@ -58,6 +60,7 @@ public class Player {
         this.password = password;
         this.emails=new ArrayList<>();
         this.statistics=new PlayerStatistics();
+        this.hasSeenTutorial=false;
     }
 
     /**
@@ -110,13 +113,14 @@ public class Player {
 
             p.username=username;
             p.password=password;
-            PlayerStatistics.load(context);
+            PlayerStatistics stats=PlayerStatistics.load(context);
 
             is.close(); //Close the object input stream.
             fis.close();
 
             //fis.close(); //Close the file input stream.
             Game.player=p; //Set the loaded player's reference to the game's player reference.
+            p.statistics=stats;
             //Game.player.statistics=PlayerStatistics.load(context); //Load in the player's statistics.
             //Game.player.statistics.numberOfTimesLoggedIn++; //Increment the number of times the player has logged in.
 
