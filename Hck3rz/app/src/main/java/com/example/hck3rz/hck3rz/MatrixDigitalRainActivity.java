@@ -24,13 +24,14 @@ import java.util.Random;
 public class MatrixDigitalRainActivity extends AppCompatActivity {
     private char[] cars = "+-*/!^'([])#@&?,=$€°|%".toCharArray();
     private Handler handler = new Handler();
-    private final int FIVE_SECONDS = 5000;
+    private final int TIME_DELAY = 3000;
     int[] textViewIds={R.id.code_rain_text_view1,R.id.code_rain_text_view2,R.id.code_rain_text_view3,R.id.code_rain_text_view4,
             R.id.code_rain_text_view5,R.id.code_rain_text_view6,R.id.code_rain_text_view7,R.id.code_rain_text_view8,
             R.id.code_rain_text_view9,R.id.code_rain_text_view10};
     int textViewAmount = textViewIds.length;
     int last5CodePosAmount = 5;
     int pointCounter =0;
+    TextView winTextView = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
         int width = displayMetrics.widthPixels;
         int resetYPosition=-300;
         int randomNumber1 = new Random().nextInt(2);
-
+        winTextView = (TextView)findViewById(R.id.code_rain_win_text_view);
 
 
         //Make ten code text views and link to their xml id
@@ -51,7 +52,8 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
         for(int i=0; i<textViewAmount; i++){
             codeList.add((TextView)findViewById(textViewIds[i]));
             codeList.get(i).setText(i+"\n"+i+"\n"+i+"\n"+i+"\n"+i);
-            codeList.get(i).setY(resetYPosition);
+            codeList.get(i).measure(0,0);
+            codeList.get(i).setY(-codeList.get(i).getMeasuredHeight());
         }
 
 //        final float bottomOfScreen = getResources().getDisplayMetrics()
@@ -78,7 +80,8 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
         for(int i=0; i<codeList.size(); i++){
             //random x position
             codeList.get(i).measure(0,0);
-            Log.d("codeWidth",String.valueOf(codeList.get(i).getMeasuredWidth()));
+            int codeWidth=codeList.get(i).getMeasuredWidth();
+            Log.d("codeWidth",String.valueOf(codeWidth));
 
             codeList.get(i).setX(new Random().nextInt(width+1)-width/2);//range[-width/2,width/2]
 
@@ -87,7 +90,7 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
             for(int j = 0; j < last5CodePos.size(); j++){
                 //check if the current code is within the last code position
                 if(Math.abs(Math.abs(codeList.get(i).getX()) - Math.abs(last5CodePos.get(j))) <= codeList.get(i).getMeasuredWidth()){
-                    codeList.get(i).setX(new Random().nextInt(width+1)-width/2);
+                    codeList.get(i).setX(new Random().nextInt((width+1)-codeWidth)-width/2+codeWidth);
                     j=0;
                 }
             }
@@ -99,57 +102,20 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
             }
             last5CodePos.add(codeList.get(i).getX());
 
-            codeFall(codeList.get(i), bottomOfScreen);
             //delay code random time
-
+            codeDelay(codeList.get(i), bottomOfScreen);
         }
 
-        //reset the code position back to the top
-        //codeResetPosition(textView,bottomOfScreen);
-        //Log.d("height", String.valueOf());
-
-
-// code for falling code loop
-//        final ImageButton[] all= {btn1, btn2, btn3, btn4};
-//        Handler handler1 = new Handler();
-//        for (int a = 1; a<=all.length ;a++) {
-//            handler1.postDelayed(new Runnable() {
-//
-//                @Override
-//                public void run() {
-//                    ImageButton btn5 = all[random.nextInt(all.length)];
-//                    btn5.setBackgroundColor(Color.RED);
-//                }
-//            }, 1000 * a);
-//        }
-//    }
-        //bottomOfScreen is where you want to animate to
-
-        //object to call code falling
-//        final Runnable runCodeFall = new Runnable() {
-//            public void run() {
-//                codeFall(textView, bottomOfScreen);
-//            }
-//        };
-
-        //codeFall(textView, bottomOfScreen);
-
-//        handler.postDelayed (runCodeFall, 5000);
-
-
-//       textView.animate()
-//               .translationY(0);
     }
 
-//    public void scheduleCodeFall(final View textView, final float bottomOfScreen){
-//        handler.postDelayed(new Runnable() {
-//            public void run() {
-//                codeFall(textView, bottomOfScreen);;          // this method will contain your almost-finished HTTP calls
-//                handler.postDelayed(this, FIVE_SECONDS);
-//            }
-//        }, FIVE_SECONDS);
-//    }
 
+    public void codeDelay(final View textView, final int bottomOfScreen){
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                codeFall(textView, bottomOfScreen);
+            }
+        }, new Random().nextInt(4000)+1000);
+    }
 
     public void codeResetPosition(final View textView, final float bottomOfScreen){
         handler.postDelayed(new Runnable() {
@@ -159,7 +125,7 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
                 textView.setY(0);
                 codeResetPosition(textView, bottomOfScreen);
             }
-        }, FIVE_SECONDS);
+        }, TIME_DELAY);
     }
 
     public void codeFall(View textView, float bottomOfScreen){
@@ -167,19 +133,20 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
                 .translationY(bottomOfScreen)
                 .setInterpolator(new AccelerateInterpolator())
                 //.setInterpolator(new BounceInterpolator())
-                .setDuration(4000);
+                .setDuration(5000);
     }
 
     public void onClick(View v){
         pointCounter++;
         v.setVisibility(View.GONE);
-        CheckIfWon(pointCounter);
+        checkIfWon(pointCounter);
     }
 
-    public void CheckIfWon(int pointCounter){
+    public void checkIfWon(int pointCounter){
         Log.d("point",String.valueOf(pointCounter));
         if(pointCounter == textViewAmount){
             Log.d("won","Win");
+            winTextView.setVisibility(View.VISIBLE);
         }
     }
 }

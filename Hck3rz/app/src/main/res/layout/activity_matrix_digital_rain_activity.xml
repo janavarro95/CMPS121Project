@@ -10,8 +10,8 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="276dp">
 
         <TextView
             android:id="@+id/code_rain_text_view1"
@@ -19,90 +19,133 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
         <TextView
             android:id="@+id/code_rain_text_view10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/green"
+            android:clickable="true"
             android:onClick="onClick"
-            android:clickable="true"/>
+            android:textColor="@color/green"
+            android:textSize="32dp" />
+
+        <TextView
+            android:id="@+id/code_rain_win_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="144dp"
+            android:text="Hacking Succesful"
+            android:textColor="@color/green"
+            android:textSize="32dp"
+            android:visibility="invisible"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="104dp"
+            android:indeterminateTint="@color/green"
+            android:visibility="invisible"/>
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
