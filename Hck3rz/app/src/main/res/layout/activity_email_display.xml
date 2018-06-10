@@ -100,4 +100,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_FROM"
         app:layout_constraintTop_toBottomOf="@+id/TEXT_VIEW_EMAIL_DISPLAY_SUBJECT_BASIC_TEXT" />
+
+    <Button
+        android:id="@+id/EMAIL_DISPLAY_ACTIVITY_BUTTON_ACCEPT_MINIGAME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:text="Accept"
+        app:layout_constraintBottom_toTopOf="@+id/BUTTON_RETURN_TO_INBOX"
+        app:layout_constraintStart_toStartOf="@+id/BUTTON_RETURN_TO_INBOX" />
 </android.support.constraint.ConstraintLayout>

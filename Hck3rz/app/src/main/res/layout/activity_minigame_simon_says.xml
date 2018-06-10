@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/terminalBackground"
+    tools:context=".MinigameSimonSaysActivity">
+
+    <ImageButton
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_DOWN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="252dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/downarrowdark" />
+
+    <ImageButton
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_UP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="252dp"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_DOWN"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/uparrowdark" />
+
+    <ImageButton
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_LEFT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="23dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_DOWN"
+        app:srcCompat="@drawable/leftarrowdark" />
+
+    <ImageButton
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_RIGHT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="23dp"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_LEFT"
+        app:layout_constraintTop_toBottomOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_IMAGE_BUTTON_UP"
+        app:srcCompat="@drawable/rightarrowdark" />
+
+    <TextView
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="64dp"
+        android:text="Time:"
+        android:textColor="@color/terminalText"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME_REMAINING"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:text="**********"
+        android:textColor="@color/terminalText"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_TEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="30dp"
+        android:text="Score:"
+        android:textColor="@color/terminalText"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME" />
+
+    <TextView
+        android:id="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_VALUE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="28dp"
+        android:text="0"
+        android:textColor="@color/terminalText"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_SCORE_TEXT"
+        app:layout_constraintTop_toBottomOf="@+id/MINIGAME_ACTIVITY_SIMON_SAYS_TEXT_VIEW_TIME_REMAINING" />
+</android.support.constraint.ConstraintLayout>

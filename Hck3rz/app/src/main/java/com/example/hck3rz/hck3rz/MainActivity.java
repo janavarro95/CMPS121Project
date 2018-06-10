@@ -13,10 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import User.Game;
+import User.OptionsPackage.Options;
+import User.OptionsPackage.SoundOptions;
 import User.Player;
 import User.PostMan;
 import Utilities.ColorUtilities;
 import android.widget.EditText;
+
+import com.example.hck3rz.hck3rz.FolderActivities.TutorialActivity;
 
 import java.io.IOException;
 
@@ -34,11 +38,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            Game.activity=this;
+            Game.SetFullScreen();
             setContentView(R.layout.activity_main);;
             instance = this;
             PostMan.initializeEmails(this);
-            Game.currentAppContext=this;
-            Game.volume=1.00f;
+
+
+            Game.options=new Options(new SoundOptions(1.00f,false)); //Create some new game options.
 
             dummyPlayer = Player.loadPlayerObject(MainActivity.this);
 
@@ -128,13 +135,18 @@ public class MainActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                    loginSound(view);
+                    Intent intent;
 
-
-                    Intent intent = new Intent(".DesktopActivity");
+                    if(!Game.player.hasSeenTutorial) {
+                        intent = new Intent(Game.activity, TutorialActivity.class);
+                    }
+                    else{
+                        intent = new Intent(".DesktopActivity");
+                    }
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
 
-                    loginSound(view);
                 }
             });
         }
