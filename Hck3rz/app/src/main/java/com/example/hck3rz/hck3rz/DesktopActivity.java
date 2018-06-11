@@ -27,6 +27,7 @@ import Utilities.TimeUtilities;
 import android.content.Intent;
 
 import com.example.hck3rz.hck3rz.FolderActivities.FolderActivityMemes;
+import com.example.hck3rz.hck3rz.FolderActivities.MatrixDigitalRainTutorialActivity;
 
 public class DesktopActivity extends AppCompatActivity {
 
@@ -134,7 +135,7 @@ public class DesktopActivity extends AppCompatActivity {
 
     public void terminal_click(View v){
         Intent intent;
-        intent = new Intent(this, MatrixDigitalRainActivity.class);
+        intent = new Intent(this, MatrixDigitalRainTutorialActivity.class);
 //      intent = new Intent(".AxeGameActivity");
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);

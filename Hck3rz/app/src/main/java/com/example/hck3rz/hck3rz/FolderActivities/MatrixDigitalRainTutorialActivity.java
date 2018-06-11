@@ -28,8 +28,8 @@ public class MatrixDigitalRainTutorialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matrix_digital_rain_tutorial);
         introText=findViewById(R.id.TUTORIAL_ACTIVITY_TEXT_VIEW_INTRO_TEXT);
-        ColorUtilities.setTextColor(introText,Game.activity,R.color.green);
-        String content= PostMan.readFromFile(this,"MatrixDigitalRainTextChallenge.txt");
+        ColorUtilities.setTextColor(introText,this,R.color.green);
+        String content= PostMan.readFromFile(this,"MatrixDigitalRainTextChallenge");
         text=new DialogueText(introText,content,DialogueText.SPEED_FAST);
         text.startDialogue();
     }

@@ -48,11 +48,6 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matrix_digital_rain_activity);
 
-        //Start matrixRain tutorial
-        intent = new Intent(this, MatrixDigitalRainTutorialActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);
-
         //get height and width of screen
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
