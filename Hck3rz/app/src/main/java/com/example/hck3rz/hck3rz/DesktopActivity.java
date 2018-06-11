@@ -64,7 +64,10 @@ public class DesktopActivity extends AppCompatActivity {
         }
 
         PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("FirstEmail"),false);
-        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("momLovesYou"),false);
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("SimonSays1"),false);
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("Tree1"),false);
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("Matrix1"),false);
+        PostMan.addEmailToInbox(PostMan.getEmailByUniqueID("PrincessKidnapped"),false);
         PostMan.playNewMailSound();
 
         newMailvisible();

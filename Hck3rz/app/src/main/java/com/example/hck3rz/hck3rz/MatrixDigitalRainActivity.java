@@ -17,9 +17,12 @@ import android.widget.TextView;
 import android.os.Handler;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import User.Game;
 
 public class MatrixDigitalRainActivity extends AppCompatActivity {
     private char[] cars = "+-*/!^'([])#@&?,=$€°|%".toCharArray();
@@ -180,6 +183,13 @@ public class MatrixDigitalRainActivity extends AppCompatActivity {
         Log.d("point",String.valueOf(pointCounter));
         if(pointCounter == textViewAmount){
             Log.d("won","Win");
+            Game.player.statistics.score+=pointCounter;
+            try {
+                Game.player.save(Game.getCurrentAppContext());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            finish();
         }
     }
 }

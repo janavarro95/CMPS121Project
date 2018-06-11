@@ -7,9 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
 
 import User.Game;
+import User.IFunction;
+import User.TimerWrapper;
+import Utilities.SoundUtilities;
 
 /* There are 3 text fields
  * Each one has a width of about 12 numbers
@@ -17,6 +22,13 @@ import User.Game;
  * The player will swipe either left or right to play the game
 */
 public class AxeGameActivity extends AppCompatActivity {
+
+    TimerWrapper finishTimer; //a timer that handles the game over screen.
+    TimerWrapper quickTimer; //reflex based timer that kills the player if they take about 3 seconds to react.
+    TimerWrapper winTimer; //A timer that handles surviving for 30 seconds.
+
+    int score;
+
     // References
     TextView leftSide;
     TextView centerSide;
@@ -64,7 +76,7 @@ public class AxeGameActivity extends AppCompatActivity {
         Game.activity=this;
         Game.SetFullScreen();
         setContentView(R.layout.activity_axe_game_activity);
-
+        score=0;
 
         // get the references
         leftSide = findViewById(R.id.GameViewL);
@@ -98,7 +110,31 @@ public class AxeGameActivity extends AppCompatActivity {
 
         random_start();
         print_segments();
+        winTimer=new TimerWrapper("winTimer", 1, new IFunction() {
+            @Override
+            public void execute() {
+                win();
+            }
 
+            @Override
+            public void countDownExecute() {
+
+            }
+        },false,false,30000);
+
+        quickTimer=new TimerWrapper("quickTime", 1, new IFunction() {
+            @Override
+            public void execute() {
+                rightSide.setTextColor(Color.RED);
+                leftSide.setTextColor(Color.RED);
+                gameOver();
+            }
+
+            @Override
+            public void countDownExecute() {
+
+            }
+        },false,false,3000);
     }
     public void random_start(){
         for(int i = 0; i < num_of_segments - 1; i++){
@@ -131,6 +167,7 @@ public class AxeGameActivity extends AppCompatActivity {
                 can_move = false;
                 // make the right red
                 rightSide.setTextColor(Color.RED);
+                gameOver();
             }
         }else{
             if(left_index[num_of_segments - 2] == 1){
@@ -138,6 +175,7 @@ public class AxeGameActivity extends AppCompatActivity {
                 can_move = false;
                 // make the left red
                 leftSide.setTextColor(Color.RED);
+                gameOver();
             }
         }
         if(can_move){
@@ -146,7 +184,7 @@ public class AxeGameActivity extends AppCompatActivity {
                 left_index[i] = left_index[i - 1];
                 right_index[i] = right_index[i - 1];
             }
-
+            score+=3;
             // randomly generate the top segment
             Random rand = new Random();
             left_index[0] = rand.nextInt(2);// 0 - 1
@@ -155,6 +193,20 @@ public class AxeGameActivity extends AppCompatActivity {
             }else{
                 right_index[0] = 0;
             }
+            //If they take too long to get to the next segment just game over them.
+            quickTimer=new TimerWrapper("quickTime", 1, new IFunction() {
+                @Override
+                public void execute() {
+                    rightSide.setTextColor(Color.RED);
+                    leftSide.setTextColor(Color.RED);
+                    gameOver();
+                }
+
+                @Override
+                public void countDownExecute() {
+
+                }
+            },false,false,3000);
         }
     }
     public void print_segments(){
@@ -189,5 +241,53 @@ public class AxeGameActivity extends AppCompatActivity {
         centerSide.setText(center_str);
         leftSide.setText(left_str);
         rightSide.setText(right_str);
+    }
+
+    public void gameOver(){
+        this.finishTimer=new TimerWrapper("gameOverAxe", 1, new IFunction() {
+            @Override
+            public void execute() {
+                Game.player.statistics.score+=score;
+                finish();
+            }
+
+            @Override
+            public void countDownExecute() {
+
+            }
+        },false,false,2000);
+    }
+
+    public void win(){
+        try {
+            this.quickTimer.stop();
+        }
+        catch (Exception err){
+
+        }
+        try {
+            this.finishTimer.stop();
+        }
+        catch (Exception err){
+
+        }
+        TimerWrapper winCooldown=new TimerWrapper("winCooldown", 1, new IFunction() {
+            @Override
+            public void execute() {
+                SoundUtilities.playSound(Game.activity,R.raw.microsoft_windows_xp_startup_sound);
+                Game.player.statistics.score+=score+25;
+                try {
+                    Game.player.save(Game.getCurrentAppContext());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                finish();
+            }
+
+            @Override
+            public void countDownExecute() {
+
+            }
+        },false,false,3000);
     }
 }

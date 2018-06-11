@@ -4,7 +4,9 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.hck3rz.hck3rz.AxeGameActivity;
 import com.example.hck3rz.hck3rz.MainActivity;
+import com.example.hck3rz.hck3rz.MatrixDigitalRainActivity;
 import com.example.hck3rz.hck3rz.MinigameSimonSaysActivity;
 import com.example.hck3rz.hck3rz.R;
 
@@ -36,8 +38,12 @@ public class PostMan {
 
     public static void initializeEmails(Context context){
         EmailPool=new ArrayList<>();
-       EmailPool.add(new Email(R.drawable.email,"First Email","Unknown","unknownSender@system.net",R.drawable.email,PostMan.readFromFile(context,"FirstEmail.txt"),"FirstEmail",null));
-       EmailPool.add(new Email(R.mipmap.ic_launcher,"HOT NEW EMAIL","My Mom","mom@aol.com",R.mipmap.ic_launcher,"Hello","momLovesYou",new MinigameSimonSaysActivity()));
+        EmailPool.add(new Email(R.drawable.email,"First Email","Admin","Developers@H@ck3rz.net",R.drawable.email,PostMan.readFromFile(context,"FirstEmail.txt"),"FirstEmail",null));
+        EmailPool.add(new Email(R.drawable.email,"Code Cracking","Unknown","unknownSender@system.net",R.drawable.email,PostMan.readFromFile(context,"SimonSays_Bounty1.txt"),"SimonSays1",new MinigameSimonSaysActivity()));
+        EmailPool.add(new Email(R.drawable.email,"Tree Searching","Unknown","unknownSender@system.net",R.drawable.email,PostMan.readFromFile(context,"Binary_Tree_Bounty.txt"),"Tree1",new AxeGameActivity()));
+        EmailPool.add(new Email(R.drawable.email,"Data Catching","Unknown","unknownSender@system.net",R.drawable.email,PostMan.readFromFile(context,"MATRIX_RAIN_BOUNTY1.txt"),"Matrix1", new MatrixDigitalRainActivity()));
+        EmailPool.add(new Email(R.drawable.email,"Princess kidnapped","Police Chief Steel","ChiefSteel@police.gov",R.drawable.email,PostMan.readFromFile(context,"Government_News_PrincessKidnapping.txt"),"PrincessKidnapped",null));
+
     }
 
     /**

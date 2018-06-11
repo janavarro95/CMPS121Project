@@ -9,6 +9,7 @@ import User.Game;
 import User.IFunction;
 import User.PostMan;
 import User.TimerWrapper;
+import Utilities.SoundUtilities;
 
 public class BootUpActivity extends AppCompatActivity {
 
@@ -40,6 +41,7 @@ public class BootUpActivity extends AppCompatActivity {
             }
 
         }, false, false, 1000);
+        SoundUtilities.playSong(this);
     }
 
 

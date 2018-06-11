@@ -74,4 +74,8 @@ public class OptionsActivity extends AppCompatActivity {
             muteButton.setText("Mute");
         }
     }
+
+    public void goHome(View v){
+        finish();
+    }
 }

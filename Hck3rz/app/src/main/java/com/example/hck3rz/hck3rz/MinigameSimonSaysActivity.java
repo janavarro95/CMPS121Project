@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -186,6 +187,12 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
             timer=new TimerWrapper("BadTimer", 1, new IFunction() {
                 @Override
                 public void execute() {
+                    Game.player.statistics.score+=score;
+                    try {
+                        Game.player.save(Game.getCurrentAppContext());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     finish();
                 }
 
@@ -358,6 +365,7 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
     public boolean isRoundFinished(){
         if(currentIndex==randomDirectionList.size()){
             //Add points
+            score+=(currentAmountToPutIn-2)*5;
             countDownTimer.stop();
             newRound();
             return true;
@@ -386,6 +394,11 @@ public class MinigameSimonSaysActivity extends AppCompatActivity {
             @Override
             public void execute() {
                 Game.player.statistics.score+=score;
+                try {
+                    Game.player.save(Game.getCurrentAppContext());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 finish();
             }
 

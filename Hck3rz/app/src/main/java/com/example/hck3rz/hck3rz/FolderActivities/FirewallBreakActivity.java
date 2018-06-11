@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.hck3rz.hck3rz.DesktopActivity;
 import com.example.hck3rz.hck3rz.R;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import User.DialogueText;
@@ -114,6 +115,11 @@ public class FirewallBreakActivity extends AppCompatActivity {
                 finishedTimer=new TimerWrapper("finished", 1, new IFunction() {
                     @Override
                     public void execute() {
+                        try {
+                            Game.player.save(Game.activity);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         Intent i=new Intent(Game.activity, DesktopActivity.class);
                         startActivity(i);
                     }

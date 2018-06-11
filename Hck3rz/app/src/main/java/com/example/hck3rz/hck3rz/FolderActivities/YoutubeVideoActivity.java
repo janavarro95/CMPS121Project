@@ -39,6 +39,12 @@ public class YoutubeVideoActivity extends AppCompatActivity {
         //myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        finish(); //When I'm done watching the video go back to the meme page.
+    }
+
 
 
 

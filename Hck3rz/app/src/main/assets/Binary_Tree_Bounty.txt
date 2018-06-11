@@ -1,0 +1,3 @@
+I got a job for you. I need you to take this binary tree and try and get all of the
+data you can from it. The more data you can splice from the tree, the more generously you
+will be paid for your efforts. Do you think you can take care of this?
