@@ -130,10 +130,22 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="144dp"
-            android:text="Hacking Succesful"
+            android:text="You are 1337 hacker boi"
             android:textColor="@color/green"
-            android:textSize="32dp"
+            android:textSize="26dp"
             android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/code_rain_lose_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="144dp"
+            android:text="Get Rekt Scrub"
+            android:textColor="@color/errorRedMessage"
+            android:textSize="26dp"
+            android:visibility="invisible" />
 
         <ProgressBar
             android:id="@+id/progressBar"

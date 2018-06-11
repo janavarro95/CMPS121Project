@@ -138,12 +138,12 @@ public class MainActivity extends AppCompatActivity {
                     loginSound(view);
                     Intent intent;
 
-                    if(!Game.player.hasSeenTutorial) {
-                        intent = new Intent(Game.activity, TutorialActivity.class);
-                    }
-                    else{
+//                    if(!Game.player.hasSeenTutorial) {
+//                        intent = new Intent(Game.activity, TutorialActivity.class);
+//                    }
+//                    else{
                         intent = new Intent(".DesktopActivity");
-                    }
+//                    }
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
 

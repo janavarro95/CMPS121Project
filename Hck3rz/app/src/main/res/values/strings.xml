@@ -6,4 +6,6 @@
     <color name="grey">#ced3db</color>
     <color name="darkerGrey">#b4b9c1</color>
     <string name="title_activity_terminal">TerminalActivity</string>
+    <string name="title_activity_matrix_digital_rain_tutorial">MatrixDigitalRainTutorialActivity
+    </string>
 </resources>

@@ -100,7 +100,11 @@
         <activity android:name=".MinigameSimonSaysActivity" />
         <activity android:name=".FolderActivities.YoutubeVideoActivity" />
         <activity android:name=".FolderActivities.TutorialActivity" />
-        <activity android:name=".FolderActivities.FirewallBreakActivity"></activity>
+        <activity android:name=".FolderActivities.FirewallBreakActivity" />
+        <activity
+            android:name=".FolderActivities.MatrixDigitalRainTutorialActivity"
+            android:label="@string/title_activity_matrix_digital_rain_tutorial"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
