@@ -37,5 +37,6 @@ public class MatrixDigitalRainTutorialActivity extends AppCompatActivity {
     public void startMatrixDigitalRain(View v){
         Intent i=new Intent(".MatrixDigitalRainActivity");
         startActivity(i);
+        finish();
     }
 }
